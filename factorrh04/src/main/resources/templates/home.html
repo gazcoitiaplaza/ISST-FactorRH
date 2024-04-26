@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Mi Aplicación</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <!-- Aquí puedes añadir tu barra de navegación y otros elementos del encabezado -->
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Bienvenido a la página de inicio</h2>
+        <!-- Contenido específico de la página home -->
+        <div class="home-buttons">
+            <button onclick="location.href='/fichar'" type="button" class="btn btn-primary">Fichar</button>
+            <button onclick="location.href='/archivos'" type="button" class="btn btn-secondary">Archivos</button>
+        </div>
+    </div>
+    <div class="solicitud-container">
+        <h3>Solicitudes</h3>
+        <div class="btn-group" role="group" aria-label="Solicitudes">
+            <button type="button" class="btn btn-outline-primary" onclick="location.href='/solicitar/baja'">Solicitar Baja</button>
+            <button type="button" class="btn btn-outline-success" onclick="location.href='/solicitar/vacaciones'">Solicitar Vacaciones</button>
+            <button type="button" class="btn btn-outline-warning" onclick="location.href='/solicitar/ausencia'">Reportar Ausencia</button>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">Lugar para tu mensaje de pie de página.</span>
+        </div>
+    </footer>
+
+    <!-- Scripts al final del body para cargar la página más rápido -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

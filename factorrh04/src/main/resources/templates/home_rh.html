@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Home RH - Mi Aplicación</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+
+        <!-- Primer apartado: Fichar y Archivos -->
+        <div class="row">
+            <div class="col">
+                <h3>Acciones Rápidas</h3>
+                <button type="button" class="btn btn-primary" onclick="location.href='/fichar'">Fichar</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='/archivos'">Archivos</button>
+            </div>
+        </div>
+
+        <!-- Segundo apartado: Gestionar Bajas, Vacaciones y Ausencias -->
+        <div class="row my-4">
+            <div class="col">
+                <h3>Gestión de Empleados</h3>
+                <button type="button" class="btn btn-info" onclick="location.href='/gestionar/bajas'">Gestionar Bajas</button>
+                <button type="button" class="btn btn-success" onclick="location.href='/gestionar/vacaciones'">Gestionar Vacaciones</button>
+                <button type="button" class="btn btn-warning" onclick="location.href='/gestionar/ausencias'">Gestionar Ausencias</button>
+            </div>
+        </div>
+
+        <!-- Tercer apartado: Gestionar Talento -->
+        <div class="row">
+            <div class="col">
+                <h3>Gestión de Talento</h3>
+                <button type="button" class="btn btn-dark" onclick="location.href='/gestionar/talento'">Gestionar Talento</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts necesarios para Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
