@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fichar - Mi Aplicación</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Fichar</h2>
+        <button id="startButton" class="btn btn-success">Iniciar</button>
+        <button id="stopButton" class="btn btn-danger">Detener</button>
+        <button id="saveButton" class="btn btn-primary">Guardar</button>
+
+        <h3>Registro de Fichajes</h3>
+        <ul id="timeEntries"></ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        let startTime, endTime;
+
+        document.getElementById('startButton').addEventListener('click', function() {
+            startTime = new Date();
+            console.log("Inicio: ", startTime);
+        });
+
+        document.getElementById('stopButton').addEventListener('click', function() {
+            endTime = new Date();
+            console.log("Fin: ", endTime);
+        });
+
+        document.getElementById('saveButton').addEventListener('click', function() {
+            if (startTime && endTime) {
+                const duration = (endTime - startTime) / 1000; // Duración en segundos
+                console.log("Duración: ", duration + " segundos");
+
+                // Aquí puedes agregar la lógica para guardar la información en el servidor
+                const entry = `<li>Iniciado: ${startTime.toLocaleTimeString()}, Finalizado: ${endTime.toLocaleTimeString()}, Duración: ${duration} segundos</li>`;
+                document.getElementById('timeEntries').innerHTML += entry;
+
+                // Restablecer startTime y endTime
+                startTime = undefined;
+                endTime = undefined;
+            } else {
+                alert("Por favor, inicia y detén el contador antes de guardar.");
+            }
+        });
+    </script>
+</body>
+</html>
