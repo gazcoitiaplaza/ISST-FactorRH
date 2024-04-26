@@ -8,10 +8,15 @@
 <body>
     <div class="container mt-5">
         <h2>Fichar</h2>
-        <button id="startButton" class="btn btn-success">Iniciar</button>
-        <button id="stopButton" class="btn btn-danger">Detener</button>
-        <button id="saveButton" class="btn btn-primary">Guardar</button>
-
+        <div class="cronometro-container">
+            <h3></h3>
+            <span id="cronometro">00:00:00</span>
+            <div class="cronometro-buttons">
+                <button id="startCronometro" class="btn btn-success">Iniciar</button>
+                <button id="stopCronometro" class="btn btn-danger">Detener</button>
+                <button id="saveCronometro" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
         <h3>Registro de Fichajes</h3>
         <ul id="timeEntries"></ul>
     </div>
@@ -19,35 +24,67 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
     <script>
-        let startTime, endTime;
-
-        document.getElementById('startButton').addEventListener('click', function() {
-            startTime = new Date();
-            console.log("Inicio: ", startTime);
-        });
-
-        document.getElementById('stopButton').addEventListener('click', function() {
-            endTime = new Date();
-            console.log("Fin: ", endTime);
-        });
-
-        document.getElementById('saveButton').addEventListener('click', function() {
-            if (startTime && endTime) {
-                const duration = (endTime - startTime) / 1000; // Duración en segundos
-                console.log("Duración: ", duration + " segundos");
-
-                // Aquí puedes agregar la lógica para guardar la información en el servidor
-                const entry = `<li>Iniciado: ${startTime.toLocaleTimeString()}, Finalizado: ${endTime.toLocaleTimeString()}, Duración: ${duration} segundos</li>`;
-                document.getElementById('timeEntries').innerHTML += entry;
-
-                // Restablecer startTime y endTime
-                startTime = undefined;
-                endTime = undefined;
-            } else {
-                alert("Por favor, inicia y detén el contador antes de guardar.");
+        let cronometroTimer;
+        let cronometroTime = 0;
+        let cronometroRunning = false;
+    
+        function updateCronometroDisplay() {
+            const hours = Math.floor(cronometroTime / 3600).toString().padStart(2, '0');
+            const minutes = Math.floor((cronometroTime % 3600) / 60).toString().padStart(2, '0');
+            const seconds = (cronometroTime % 60).toString().padStart(2, '0');
+            document.getElementById('cronometro').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+    
+        document.getElementById('startCronometro').addEventListener('click', function() {
+            if (!cronometroRunning) {
+                cronometroRunning = true;
+                cronometroTimer = setInterval(function() {
+                    cronometroTime++;
+                    updateCronometroDisplay();
+                }, 1000);
             }
         });
+    
+        document.getElementById('stopCronometro').addEventListener('click', function() {
+            if (cronometroRunning) {
+                clearInterval(cronometroTimer);
+                cronometroRunning = false;
+            }
+        });
+    
+        document.getElementById('saveCronometro').addEventListener('click', function() {
+    if (cronometroRunning) {
+        stopCronometro();  // Detiene el cronómetro si está corriendo
+    }
+    if (cronometroTime > 0) {
+        // Envía el tiempo a tu backend para que se guarde en la base de datos
+        fetch('/saveTime', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ time: cronometroTime }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            cronometroTime = 0;
+            updateCronometroDisplay(0);  // Resetea la visualización del cronómetro
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    } else {
+        alert("Por favor, inicia el cronómetro antes de guardar.");
+    }
+});
+
+    
+        // Inicializa el cronómetro al cargar la página
+        updateCronometroDisplay();
     </script>
+    
 </body>
 </html>
