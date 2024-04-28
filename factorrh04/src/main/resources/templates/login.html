@@ -18,56 +18,17 @@
             /* Hace los inputs más pequeños */
             padding: 5px 10px;
             /* Reduce el padding interno */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Agregando un poco de estilo al header para incluir el logo */
         header img {
+            margin-right: 10px;
+            /* Ajusta el margen derecho según necesites */
             width: 200px;
             /* Tamaño del logo */
-            display: block;
-            margin: 0 auto 10px;
-            /* Centra el logo y añade espacio debajo */
-        }
-
-        .container {
-            margin-top: 50px;
-            /* Ajusta según necesites */
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            /* Color de fondo */
-            border-color: #007bff;
-            /* Color del borde */
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-            /* Color de fondo al pasar el mouse */
-            border-color: #0056b3;
-            /* Color del borde al pasar el mouse */
-        }
-
-        .text-danger {
-            color: #dc3545;
-            /* Color del texto */
-        }
-        .text-success {
-            color: #28a745;
-            /* Color del texto */
-        }
-
-        .text-center {
-            text-align: center;
-            /* Centra el texto */
-        }
-
-        .row {
-            margin-top: 50px;
-            /* Ajusta según necesites */
-        }
-
-        .logo {
             display: block;
             margin: 0 auto 10px;
             /* Centra el logo y añade espacio debajo */
@@ -79,9 +40,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <header>
-                    <img src="factorrh04/src/main/resources/static/img/logo.jpeg" height="auto" width="auto" class="logo">
-                    <h1 class="text-center">Factor RH</h1>
+                <header style="color: white; background-color: #324658;">
+                    <img src="factorrh04/src/main/resources/static/img/logo.jpeg" class="logo">
+                    <h1 class="text-center" style="margin-top: 0;">Factor RH</h1>
                 </header>
                 <h2>Iniciar sesión</h2>
                 <form th:action="@{/login}" method="post">
@@ -94,8 +55,8 @@
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-                        <button onclick="location.href='/home';" type="button" class="btn btn-primary">Iniciar
+                        <button type="submit" class="btn btn-primary" style="background-color: #324658; border-color: #324658;">Iniciar sesión</button>
+                        <button onclick="location.href='/home';" type="button" class="btn btn-primary" style="background-color: #324658; border-color: #324658";>Iniciar
                             temporal</button>
                     </div>
                     <p th:if="${param.error}" class="text-danger">Nombre de usuario o contraseña inválidos.</p>
