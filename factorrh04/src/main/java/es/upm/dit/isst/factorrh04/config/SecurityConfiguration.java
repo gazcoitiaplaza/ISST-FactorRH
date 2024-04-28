@@ -19,7 +19,15 @@ public class SecurityConfiguration {
                 )
             // cuando tengamos los ususarios y roles hay que añadir la seguridad para que rh pueda acceder  todo
             // y user solo a home, fichar, pedir bajas, archivos 
-            //ej:  .requestMatchers("/alumnos").hasAnyRole("ALUM") 
+                /*
+                protected void configure(HttpSecurity http) throws Exception {
+                ej: http.authorizeRequests()
+                .antMatchers("/”).permitAll() (+0.25)
+                .anyRequest().authenticated() (+0.25)
+                .and().formLogin().loginPage(“/acceso”).permitAll() (+0.25)
+                .and().logout().permitAll();
+                */
+
                 .headers(headers -> headers.frameOptions().disable())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/h2-console/**"));
