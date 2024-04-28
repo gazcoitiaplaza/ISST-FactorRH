@@ -17,6 +17,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/**").permitAll()
                 )
+            // cuando tengamos los ususarios y roles hay que añadir la seguridad para que rh pueda acceder  todo
+            // y user solo a home, fichar, pedir bajas, archivos 
                 .headers(headers -> headers.frameOptions().disable())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/h2-console/**"));
