@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Factorrh04Application<factorrh04>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "es.upm.dit.isst.factorrh04.Factorrh04Application",
+            "projectName": "factorrh04",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
