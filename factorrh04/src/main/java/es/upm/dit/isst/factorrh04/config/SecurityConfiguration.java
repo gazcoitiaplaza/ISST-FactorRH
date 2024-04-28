@@ -14,6 +14,9 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
                 )
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/**").permitAll()
+                )
                 .headers(headers -> headers.frameOptions().disable())
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/h2-console/**"));
