@@ -316,3 +316,131 @@ Database is already closed (to disable automatic closing at VM shutdown, add ";D
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-04-26 23:47:36.492474+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]USERID"; se esperaba "UPDATE"
+Syntax error in SQL statement "[*]USERID"; expected "UPDATE"; SQL statement:
+USERID [42001-224]
+2024-04-26 23:47:42.114990+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]USERNAME"; se esperaba "UPDATE"
+Syntax error in SQL statement "[*]USERNAME"; expected "UPDATE"; SQL statement:
+USERNAME [42001-224]
+2024-04-26 23:47:45.791643+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]USERNAME"; se esperaba "UPDATE"
+Syntax error in SQL statement "[*]USERNAME"; expected "UPDATE"; SQL statement:
+USERNAME [42001-224]
+2024-04-26 23:47:47.927351+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]EMAIL"; se esperaba "EXPLAIN, EXECUTE"
+Syntax error in SQL statement "[*]EMAIL"; expected "EXPLAIN, EXECUTE"; SQL statement:
+EMAIL [42001-224]
+2024-04-26 23:47:49.937265+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]PASSWORD"; se esperaba "PREPARE"
+Syntax error in SQL statement "[*]PASSWORD"; expected "PREPARE"; SQL statement:
+PASSWORD [42001-224]
+2024-04-26 23:47:52.102003+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]ROLEID"; se esperaba "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"
+Syntax error in SQL statement "[*]ROLEID"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+ROLEID [42001-224]
+2024-04-26 23:48:05.286031+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]ROLENAME"; se esperaba "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"
+Syntax error in SQL statement "[*]ROLENAME"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+ROLENAME [42001-224]
+2024-04-26 23:48:07.541413+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]ROLEID"; se esperaba "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"
+Syntax error in SQL statement "[*]ROLEID"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+ROLEID [42001-224]
+2024-04-26 23:48:19.490238+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]USERROLES"; se esperaba "UPDATE"
+Syntax error in SQL statement "[*]USERROLES"; expected "UPDATE"; SQL statement:
+USERROLES [42001-224]
+2024-04-26 23:48:22.918994+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]USERROLES"; se esperaba "UPDATE"
+Syntax error in SQL statement "[*]USERROLES"; expected "UPDATE"; SQL statement:
+USERROLES [42001-224]
+2024-04-26 23:48:25.064273+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]ROLES"; se esperaba "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"
+Syntax error in SQL statement "[*]ROLES"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+ROLES [42001-224]
+2024-04-26 23:48:28.379350+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]ROLES"; se esperaba "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"
+Syntax error in SQL statement "[*]ROLES"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+ROLES [42001-224]
+2024-04-26 23:49:53.250449+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]USERROLES"; se esperaba "UPDATE"
+Syntax error in SQL statement "[*]USERROLES"; expected "UPDATE"; SQL statement:
+USERROLES [42001-224]
+2024-04-26 23:49:55.043888+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]USERROLES"; se esperaba "UPDATE"
+Syntax error in SQL statement "[*]USERROLES"; expected "UPDATE"; SQL statement:
+USERROLES [42001-224]
+2024-04-26 23:52:09.376473+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]USERS"; se esperaba "UPDATE"
+Syntax error in SQL statement "[*]USERS"; expected "UPDATE"; SQL statement:
+USERS [42001-224]
+2024-04-26 23:52:21.007188+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM USERS USERROLES [*]ROLES"
+Syntax error in SQL statement "SELECT * FROM USERS USERROLES [*]ROLES"; SQL statement:
+SELECT * FROM USERS USERROLES ROLES [42000-224]
+2024-04-26 23:52:33.257657+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM [*]SELECT * USERS SELECT * USERROLES ROLES"; se esperaba "identifier"
+Syntax error in SQL statement "SELECT * FROM [*]SELECT * USERS SELECT * USERROLES ROLES"; expected "identifier"; SQL statement:
+SELECT * FROM SELECT * USERS SELECT * USERROLES ROLES [42001-224]
+2024-04-26 23:52:42.695700+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * [*]USERS"
+Syntax error in SQL statement "SELECT * [*]USERS"; SQL statement:
+SELECT * USERS [42000-224]
+2024-04-26 23:52:46.701200+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT *[*]USERS"
+Syntax error in SQL statement "SELECT *[*]USERS"; SQL statement:
+SELECT *USERS [42000-224]
+2024-04-26 23:53:01.147156+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM USERS [*]SELECT * FROM USERROLES"
+Syntax error in SQL statement "SELECT * FROM USERS [*]SELECT * FROM USERROLES"; SQL statement:
+SELECT * FROM USERS SELECT * FROM USERROLES [42000-224]
+2024-04-26 23:54:37.356821+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:54:40.553582+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:54:43.569583+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:54:47.134052+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:54:49.599490+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:54:52.198810+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:54:54.951392+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:54:57.276777+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:55:08.631882+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:56:51.113839+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-26 23:57:39.329072+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
+2024-04-27 00:10:38.741459+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USERS" ya existe
+Table "USERS" already exists; SQL statement:
+CREATE TABLE Users ( UserID INT PRIMARY KEY, UserName VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE NOT NULL, Password VARCHAR(100) NOT NULL ) [42101-224]
