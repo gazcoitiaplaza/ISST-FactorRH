@@ -131,6 +131,7 @@ public class Empleado {
         CP = cP;
     }
 
+    //Quitar esto
     public String getEmail_particular() {
         return email_particular;
     }
