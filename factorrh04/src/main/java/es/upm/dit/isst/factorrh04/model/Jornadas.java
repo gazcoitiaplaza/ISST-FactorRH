@@ -1,6 +1,10 @@
-package es.upm.dit.isst.tfgapi.model;
+package es.upm.dit.isst.factorrh04.model;
 
-import javax.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.Table;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
