@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ausencias</title>
+</head>
+<body>
+    <h1>Lista de Ausencias</h1>
+    <table id="tablaAusencias">
+        <thead>
+            <tr>
+                <th>ID Empleado</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+                <th>Tipo de Ausencia</th>
+                <th>Autorizada</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody id="cuerpoTabla">
+            <!-- Aquí se llenarán los datos de las ausencias -->
+        </tbody>
+    </table>
+
+    <script>
+        // Función para obtener las ausencias del backend y llenar la tabla
+        async function obtenerAusencias() {
+            const respuesta = await fetch('/ausencias');
+            const ausencias = await respuesta.json();
+
+            const cuerpoTabla = document.getElementById('cuerpoTabla');
+
+            ausencias.forEach(ausencia => {
+                const fila = document.createElement('tr');
+
+                const idEmpleado = document.createElement('td');
+                idEmpleado.textContent = ausencia.idempleado;
+
+                const fechaInicio = document.createElement('td');
+                fechaInicio.textContent = ausencia.inicio;
+
+                const fechaFin = document.createElement('td');
+                fechaFin.textContent = ausencia.fin;
+
+                const tipoAusencia = document.createElement('td');
+                tipoAusencia.textContent = ausencia.tipo_ausencia;
+
+                const autorizada = document.createElement('td');
+                autorizada.textContent = ausencia.autorizada;
+
+                const notas = document.createElement('td');
+                notas.textContent = ausencia.notas;
+
+                fila.appendChild(idEmpleado);
+                fila.appendChild(fechaInicio);
+                fila.appendChild(fechaFin);
+                fila.appendChild(tipoAusencia);
+                fila.appendChild(autorizada);
+                fila.appendChild(notas);
+
+                cuerpoTabla.appendChild(fila);
+            });
+        }
+
+        // Llamar a la función para obtener las ausencias cuando la página cargue
+        window.onload = obtenerAusencias;
+    </script>
+</body>
+</html>
