@@ -1,102 +1,79 @@
 package es.upm.dit.isst.factorrh04.model;
 
+import jakarta.persistence.*;
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.TemporalType;
-
 @Entity
-@Table(name = "Ausencias")
 public class Ausencias {
 
-    @Id
-    @Column(name = "idausencia")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer idausencia;
-    @Column(name = "idempleado", length = 4)
-    private String idempleado;
-    @jakarta.persistence.Temporal(TemporalType.DATE)
-    @Column(name = "inicio", nullable = true, columnDefinition = "DATE DEFAULT null")
-    private Date inicio;
-    @jakarta.persistence.Temporal(TemporalType.DATE)
-    @Column(name = "fin", nullable = true, columnDefinition = "DATE DEFAULT null")
-    private Date fin;
-    @Column(name = "tipo_ausencia", length = 3)
-    private String tipo_ausencia;
-    @Column(name = "autorizada", length = 1)
-    private String autorizada;
-    @Column(name = "n_dias", precision = 8, scale = 2)
-    private Integer n_dias;
-    @jakarta.persistence.Temporal(TemporalType.DATE)
+    public enum TipoAusencia {
+        BAJA,
+        AUSENCIA,
+        VACACIONES
+    }
 
-    @Column(name = "fecha_comunicacion", nullable = true, columnDefinition = "DATE DEFAULT null")
-    private Date fecha_comunicacion;
-    @Column(name = "notas", length = 255)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "nombre_usuario", length = 50) // Agregamos el nombre de usuario
+    private String nombreUsuario; // Cambiamos Empleado a String
+
+    private Date fechaInicio;
+    private Date fechaFin;
+    private TipoAusencia tipoAusencia;
+    private boolean autorizada;
     private String notas;
 
-    public Ausencias() {
+    // Getters and setters
 
+    public long getId() {
+        return id;
     }
 
-    public String getIdempleado() {
-        return idempleado;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setIdempleado(String idempleado) {
-        this.idempleado = idempleado;
+    // Cambiamos Empleado a String y agregamos getters y setters
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public Date getInicio() {
-        return inicio;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public void setInicio(Date inicio) {
-        this.inicio = inicio;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public Date getFin() {
-        return fin;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public void setFin(Date fin) {
-        this.fin = fin;
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
-    public String getTipo_ausencia() {
-        return tipo_ausencia;
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
-    public void setTipo_ausencia(String tipo_ausencia) {
-        this.tipo_ausencia = tipo_ausencia;
+    public TipoAusencia getTipoAusencia() {
+        return tipoAusencia;
     }
 
-    public String getAutorizada() {
+    public void setTipoAusencia(TipoAusencia tipoAusencia) {
+        this.tipoAusencia = tipoAusencia;
+    }
+
+    public boolean isAutorizada() {
         return autorizada;
     }
 
-    public void setAutorizada(String autorizada) {
+    public void setAutorizada(boolean autorizada) {
         this.autorizada = autorizada;
-    }
-
-    public Integer getN_dias() {
-        return n_dias;
-    }
-
-    public void setN_dias(Integer n_dias) {
-        this.n_dias = n_dias;
-    }
-
-    public Date getFecha_comunicacion() {
-        return fecha_comunicacion;
-    }
-
-    public void setFecha_comunicacion(Date fecha_comunicacion) {
-        this.fecha_comunicacion = fecha_comunicacion;
     }
 
     public String getNotas() {
@@ -106,13 +83,4 @@ public class Ausencias {
     public void setNotas(String notas) {
         this.notas = notas;
     }
-
-    public Integer getIdausencia() {
-        return idausencia;
-    }
-
-    public void setIdausencia(Integer idausencia) {
-        this.idausencia = idausencia;
-    }
-
 }
