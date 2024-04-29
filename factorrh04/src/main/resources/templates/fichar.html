@@ -87,7 +87,48 @@
     
         // Inicializa el cronómetro al cargar la página
         updateCronometroDisplay();
+        
+        function fetchJornadas() {
+    fetch('/jornadas')
+    .then(response => response.json())
+    .then(data => {
+        const table = document.getElementById('jornadasTable');
+        table.innerHTML = '';  // Limpia la tabla antes de añadir nuevas filas
+        data.forEach(jornada => {
+            const row = table.insertRow();
+            row.insertCell(0).textContent = jornada.idEmpleado;
+            row.insertCell(1).textContent = jornada.fecha;
+            row.insertCell(2).textContent = jornada.hora_entrada ? jornada.hora_entrada : '---';
+            row.insertCell(3).textContent = jornada.hora_salida ? jornada.hora_salida : '---';
+            row.insertCell(4).textContent = jornada.minutos_trabajados;
+            row.insertCell(5).textContent = jornada.estado;
+        });
+    })
+    .catch(error => console.error('Error al cargar las jornadas:', error));
+}
+
+// Llamada inicial para cargar los datos
+document.addEventListener('DOMContentLoaded', function() {
+    fetchJornadas();
+});
+
     </script>
+    <h3>Registro de Jornadas</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID Empleado</th>
+                <th>Fecha</th>
+                <th>Hora Entrada</th>
+                <th>Hora Salida</th>
+                <th>Minutos Trabajados</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody id="jornadasTable">
+            <!-- Las filas se llenarán desde JavaScript -->
+        </tbody>
+    </table>
     
 </body>
 </html>
