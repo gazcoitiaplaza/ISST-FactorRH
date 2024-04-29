@@ -8,33 +8,70 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <!-- Aquí puedes añadir tu barra de navegación y otros elementos del encabezado -->
+        <button onclick="location.href='/login';" type="button" class="btn btn-primary ml-auto">Cerrar sesion</button>
     </nav>
+    <div style="margin-top: 20px;"></div>
+
+    <div class="container-fluid mt-4 text-center">
+        <h2>Bienvenido a la página de inicio</h2>
+    </div>
+    
+
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 25px;">Registro Horario</h5>
+                    <p class="card-text" style="font-size: 20px;">Aquí podrás registrar las horas de entrada y salida de jornada laboral</p>
+                    <div class="home-buttons">
+                        <button onclick="location.href='/fichar';" type="button" class="btn btn-primary btn-block">Fichar</button>
+                        <button onclick="location.href='/archivos'" type="button" class="btn btn-secondary btn-block mt-2">Archivos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 25px;">Solicitudes</h5>
+                    <p class="card-text" style="font-size: 20px;">Aquí podrás registrar las horas de entrada y salida de jornada laboral</p>
+                    <div class="solicitud-container">
+                        <button type="button" class="btn btn-outline-primary btn-block" onclick="location.href='/solicitar/baja'">Solicitar Baja</button>
+                        <button type="button" class="btn btn-outline-success btn-block mt-2" onclick="location.href='/solicitar/vacaciones'">Solicitar Vacaciones</button>
+                        <button type="button" class="btn btn-outline-warning btn-block mt-2" onclick="location.href='/ausencias'">Reportar Ausencia</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 25px;">Otro Título</h5>
+                    <p class="card-text" style="font-size: 20px;">Aquí puedes poner la descripción del tercer elemento.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <div class="container mt-5">
-        <h2>Bienvenido a la página de inicio</h2>
         <!-- Contenido específico de la página home -->
-        <div class="home-buttons">
-            <button onclick="location.href='/fichar'" type="button" class="btn btn-primary">Fichar</button>
-            <button onclick="location.href='/archivos'" type="button" class="btn btn-secondary">Archivos</button>
-        </div>
-    </div>
 
+    </div>
     <div class="solicitud-container">
-        <h3>Solicitudes</h3>
-        <div class="btn-group" role="group" aria-label="Solicitudes">
-            <button type="button" class="btn btn-outline-warning" onclick="location.href='/ausencias'">Reportar Ausencia</button>
-        </div>
-    </div>
 
-    <div>
-        <button onclick="location.href='/login';" type="button" class="btn btn-primary">Cerrar sesión</button>
-    </div>
-
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
         <div class="container">
-            <span class="text-muted">Lugar para tu mensaje de pie de página.</span>
+            <span class="text-muted">Factor RRHH</span>
         </div>
     </footer>
+    
 
     <!-- Scripts al final del body para cargar la página más rápido -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

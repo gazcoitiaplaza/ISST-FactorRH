@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Ausencias</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <h1>Registro de Ausencias</h1>
@@ -11,10 +12,10 @@
     <!-- Formulario para registrar una ausencia -->
     <form action="#" th:action="@{/ausencias/registrar}" th:object="${ausencia}" method="post">
         <label for="fechaInicio">Fecha de Inicio:</label>
-        <input type="date" id="fechaInicio" name="fechaInicio" th:field="*{fechaInicio}" required><br><br>
+        <input type="text" id="fechaInicio" name="fechaInicio" th:field="*{fechaInicio}" required><br><br>
 
         <label for="fechaFin">Fecha de Fin:</label>
-        <input type="date" id="fechaFin" name="fechaFin" th:field="*{fechaFin}" required><br><br>
+        <input type="text" id="fechaFin" name="fechaFin" th:field="*{fechaFin}" required><br><br>
 
         <label for="tipoAusencia">Tipo de Ausencia:</label>
         <select id="tipoAusencia" name="tipoAusencia" th:field="*{tipoAusencia}" required>
@@ -50,8 +51,8 @@
         </thead>
         <tbody>
             <tr th:each="ausencia : ${listaAusencias}">
-                <td th:text="${#dates.format(ausencia.fechaInicio, 'dd-MM-yyyy')}"></td>
-                <td th:text="${#dates.format(ausencia.fechaFin, 'dd-MM-yyyy')}"></td>
+                <td th:text="${#dates.format(ausencia.fechaInicio, 'yyyy-MM-dd')}"></td>
+                <td th:text="${#dates.format(ausencia.fechaFin, 'yyyy-MM-dd')}"></td>
                 <td th:text="${ausencia.tipoAusencia}"></td>
                 <td th:text="${ausencia.autorizada} ? 'Sí' : 'No'"></td>
                 <td th:text="${ausencia.notas}"></td>
@@ -61,5 +62,15 @@
 
     <!-- Botones para acciones -->
     <button onclick="location.href='/'" type="button">Volver al Inicio</button>
+
+    <!-- Script para inicializar jQuery UI Datepicker -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#fechaInicio" ).datepicker({ dateFormat: 'yy-mm-dd' });
+            $( "#fechaFin" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        } );
+    </script>
 </body>
 </html>
