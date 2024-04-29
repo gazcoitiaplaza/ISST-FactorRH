@@ -47,9 +47,9 @@ public class Empleado {
     @Column(name = "SWIFT", length = 11)
     private String SWIFT;
     @Column(name = "sueldo_base", precision = 8, scale = 2)
-    private Double sueldo_base;
+    private int sueldo_base;
     @Column(name = "antiguedad", precision = 8, scale = 2)
-    private Double antiguedad;
+    private int antiguedad;
     // private final byte[] foto;
     @Column(name = "password", length = 50)
     private String password;
@@ -188,19 +188,19 @@ public class Empleado {
         SWIFT = sWIFT;
     }
 
-    public Double getSueldo_base() {
+    public int getSueldo_base() {
         return sueldo_base;
     }
 
-    public void setSueldo_base(Double sueldo_base) {
+    public void setSueldo_base(int sueldo_base) {
         this.sueldo_base = sueldo_base;
     }
 
-    public Double getAntiguedad() {
+    public int getAntiguedad() {
         return antiguedad;
     }
 
-    public void setAntiguedad(Double antiguedad) {
+    public void setAntiguedad(int antiguedad) {
         this.antiguedad = antiguedad;
     }
 
