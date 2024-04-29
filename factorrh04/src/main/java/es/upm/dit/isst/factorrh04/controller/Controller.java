@@ -7,5 +7,5 @@ public class Controller {
     public String inicio() {
         return "login.html";
     }
-  
+
 }
