@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Iniciar sesión</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        /* Espacio entre el header y el cuerpo del formulario */
+        header {
+            margin-bottom: 20px;
+            /* Ajusta según necesites */
+        }
+
+        /* Personalización de los inputs */
+        input.form-control {
+            height: 35px;
+            /* Hace los inputs más pequeños */
+            padding: 5px 10px;
+            /* Reduce el padding interno */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Agregando un poco de estilo al header para incluir el logo */
+        header img {
+            margin-right: 10px;
+            /* Ajusta el margen derecho según necesites */
+            width: 200px;
+            /* Tamaño del logo */
+            display: block;
+            margin: 0 auto 10px;
+            /* Centra el logo y añade espacio debajo */
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <header style="color: white; background-color: #324658;">
+                    <img src="factorrh04/src/main/resources/static/img/logo.jpeg" class="logo">
+                    <h1 class="text-center" style="margin-top: 0;">Factor RH</h1>
+                </header>
                 <h2>Iniciar sesión</h2>
                 <form th:action="@{/login}" method="post">
                     <div class="form-group">
@@ -20,8 +55,9 @@
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-                        <button onclick="location.href='/home';" type="button" class="btn btn-primary">Iniciar temporal</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #324658; border-color: #324658;">Iniciar sesión</button>
+                        <button onclick="location.href='/home';" type="button" class="btn btn-primary" style="background-color: #324658; border-color: #324658";>Iniciar
+                            temporal</button>
                     </div>
                     <p th:if="${param.error}" class="text-danger">Nombre de usuario o contraseña inválidos.</p>
                     <p th:if="${param.logout}" class="text-success">Has cerrado sesión exitosamente.</p>
@@ -30,4 +66,5 @@
         </div>
     </div>
 </body>
+
 </html>
