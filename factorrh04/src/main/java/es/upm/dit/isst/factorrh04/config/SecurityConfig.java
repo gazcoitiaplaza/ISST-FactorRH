@@ -46,6 +46,8 @@ public class SecurityConfig {
                 .authorizeRequests(authorizeRequests -> {
                     authorizeRequests
                             .requestMatchers("/login").permitAll()
+                        .requestMatchers("/home_rh", "/fichar").hasRole("RH")
+                        .requestMatchers("/home", "/fichar").hasRole("EMPLEADO")
                             .anyRequest().authenticated();
                 })
                 .formLogin(form -> form
