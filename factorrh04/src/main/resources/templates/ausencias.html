@@ -3,68 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Ausencias</title>
+    <title>Registro de Ausencias</title>
 </head>
 <body>
-    <h1>Lista de Ausencias</h1>
-    <table id="tablaAusencias">
-        <thead>
-            <tr>
-                <th>ID Empleado</th>
-                <th>Fecha de Inicio</th>
-                <th>Fecha de Fin</th>
-                <th>Tipo de Ausencia</th>
-                <th>Autorizada</th>
-                <th>Notas</th>
-            </tr>
-        </thead>
-        <tbody id="cuerpoTabla">
-            <!-- Aquí se llenarán los datos de las ausencias -->
-        </tbody>
-    </table>
+    <h1>Registro de Ausencias</h1>
+
+    <!-- Botones para acciones -->
+    <button onclick="registrarAusencia()">Registrar Ausencia</button>
+    <button onclick="limpiarFormulario()">Limpiar Formulario</button>
+
+    <!-- Formulario para registrar una ausencia -->
+    <form id="formularioAusencia">
+        <label for="idEmpleado">ID Empleado:</label>
+        <input type="text" id="idEmpleado" name="idEmpleado" required><br><br>
+
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" id="fechaInicio" name="fechaInicio" required><br><br>
+
+        <label for="fechaFin">Fecha de Fin:</label>
+        <input type="date" id="fechaFin" name="fechaFin" required><br><br>
+
+        <label for="tipoAusencia">Tipo de Ausencia:</label>
+        <select id="tipoAusencia" name="tipoAusencia" required>
+            <option value="vacaciones">Vacaciones</option>
+            <option value="enfermedad">Enfermedad</option>
+            <option value="permiso">Permiso</option>
+        </select><br><br>
+
+        <label for="autorizada">Autorizada:</label>
+        <input type="checkbox" id="autorizada" name="autorizada"><br><br>
+
+        <label for="notas">Notas:</label><br>
+        <textarea id="notas" name="notas" rows="4" cols="50"></textarea><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
 
     <script>
-        // Función para obtener las ausencias del backend y llenar la tabla
-        async function obtenerAusencias() {
-            const respuesta = await fetch('/ausencias');
-            const ausencias = await respuesta.json();
-
-            const cuerpoTabla = document.getElementById('cuerpoTabla');
-
-            ausencias.forEach(ausencia => {
-                const fila = document.createElement('tr');
-
-                const idEmpleado = document.createElement('td');
-                idEmpleado.textContent = ausencia.idempleado;
-
-                const fechaInicio = document.createElement('td');
-                fechaInicio.textContent = ausencia.inicio;
-
-                const fechaFin = document.createElement('td');
-                fechaFin.textContent = ausencia.fin;
-
-                const tipoAusencia = document.createElement('td');
-                tipoAusencia.textContent = ausencia.tipo_ausencia;
-
-                const autorizada = document.createElement('td');
-                autorizada.textContent = ausencia.autorizada;
-
-                const notas = document.createElement('td');
-                notas.textContent = ausencia.notas;
-
-                fila.appendChild(idEmpleado);
-                fila.appendChild(fechaInicio);
-                fila.appendChild(fechaFin);
-                fila.appendChild(tipoAusencia);
-                fila.appendChild(autorizada);
-                fila.appendChild(notas);
-
-                cuerpoTabla.appendChild(fila);
-            });
+        // Función para registrar una ausencia (simulada)
+        function registrarAusencia() {
+            alert("Ausencia registrada (simulado)");
         }
 
-        // Llamar a la función para obtener las ausencias cuando la página cargue
-        window.onload = obtenerAusencias;
+        // Función para limpiar el formulario
+        function limpiarFormulario() {
+            document.getElementById("formularioAusencia").reset();
+        }
     </script>
 </body>
 </html>
