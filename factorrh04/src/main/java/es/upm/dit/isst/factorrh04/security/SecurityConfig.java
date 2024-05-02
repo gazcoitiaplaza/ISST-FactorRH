@@ -68,8 +68,10 @@ public class SecurityConfig {
                 .authorizeRequests(authorizeRequests -> {
                     authorizeRequests
                             .requestMatchers("/login").permitAll()
+                            .requestMatchers("/static/**").permitAll()
                             .anyRequest().authenticated();
                 })
+                
                 .formLogin(form -> form
                                 .loginPage("/login") // Especificar la página de inicio de sesión personalizada
                                 .permitAll() // Permitir acceso a la página de inicio de sesión
