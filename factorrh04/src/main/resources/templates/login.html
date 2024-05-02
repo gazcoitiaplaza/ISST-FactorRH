@@ -6,31 +6,28 @@
     <title>Iniciar sesión</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
-        /* Espacio entre el header y el cuerpo del formulario */
+        body {
+            background-color: #f8f9fa;
+        }
+    
+        .container {
+            margin-top: 50px;
+        }
+    
         header {
-            margin-bottom: 20px;
-            /* Ajusta según necesites */
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            display: flex; /* Añadido para usar flexbox */
+            align-items: center; /* Añadido para alinear los elementos verticalmente en el centro */
+            justify-content: center; /* Añadido para alinear los elementos horizontalmente en el centro */
+            font-family: 'Monaco', monospace; /* Añadido para cambiar la fuente a Monaco */
         }
-
-        /* Personalización de los inputs */
-        input.form-control {
-            height: 35px;
-            /* Hace los inputs más pequeños */
-            padding: 5px 10px;
-            /* Reduce el padding interno */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Agregando un poco de estilo al header para incluir el logo */
+    
         .logo {
-            /* Ajusta el margen derecho según necesites */
-            width: 200px;
-            /* Tamaño del logo */
-            display: block;
-            margin: 0 auto 10px;
-            /* Centra el logo y añade espacio debajo */
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -39,9 +36,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <header style="color: white; background-color: #324658;">
-                    <img src="/static/img/logo.jpeg" alt="Logo de Factor RH" class="logo">
-                    <h1 class="text-center" style="margin-top: 0;">Factor RH</h1>
+                <header style="color: white; background-color:#12223b;">
+                    <h1 class="text-center" style="margin-top: 0;">FACTOR-RH</h1>
+                    <nav>
+                        <img th:src="@{/img/logo.jpeg}" class="logo">
+                    </nav>
                 </header>
                 <h2>Iniciar sesión</h2>
                 <form th:action="@{/login}" method="post">
@@ -54,9 +53,9 @@
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary" style="background-color: #324658; border-color: #324658;">Iniciar sesión</button>
-                        <button onclick="location.href='/home';" type="button" class="btn btn-primary" style="background-color: #324658; border-color: #324658";>Iniciar
-                            temporal</button>
+                        <button type="submit" class="btn btn-primary"
+                            style="background-color: #324658; border-color: #324658;">Iniciar sesión</button>
+                        <a th:href="@{/login}" class="btn btn-link">¿Has olvidado tu contraseña?</a>
                     </div>
                     <p th:if="${param.error}" class="text-danger">Nombre de usuario o contraseña inválidos.</p>
                     <p th:if="${param.logout}" class="text-success">Has cerrado sesión exitosamente.</p>
