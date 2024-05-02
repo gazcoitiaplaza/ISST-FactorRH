@@ -1,76 +1,101 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Ausencias</title>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <title>Reportar Ausencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="date"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin-top: 5px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <h1>Registro de Ausencias</h1>
-
-    <!-- Formulario para registrar una ausencia -->
-    <form action="#" th:action="@{/ausencias/registrar}" th:object="${ausencia}" method="post">
-        <label for="fechaInicio">Fecha de Inicio:</label>
-        <input type="text" id="fechaInicio" name="fechaInicio" th:field="*{fechaInicio}" required><br><br>
-
-        <label for="fechaFin">Fecha de Fin:</label>
-        <input type="text" id="fechaFin" name="fechaFin" th:field="*{fechaFin}" required><br><br>
-
-        <label for="tipoAusencia">Tipo de Ausencia:</label>
-        <select id="tipoAusencia" name="tipoAusencia" th:field="*{tipoAusencia}" required>
+    <h1>Reportar Ausencia</h1>
+    <form action="/ausencias/registrar" method="post">
+        <label for="fechaInicio">Fecha de inicio:</label>
+        <input type="date" id="fechaInicio" name="fechaInicio" required>
+        <label for="fechaFin">Fecha de fin:</label>
+        <input type="date" id="fechaFin" name="fechaFin" required>
+        <label for="tipoAusencia">Tipo de ausencia:</label>
+        <select id="tipoAusencia" name="tipoAusencia" required>
+            <option value="BAJA">Baja</option>
+            <option value="AUSENCIA">Ausencia</option>
             <option value="VACACIONES">Vacaciones</option>
-            <option value="AUSENCIA">Enfermedad</option>
-            <option value="BAJA">Permiso</option>
-        </select><br><br>
-
-        <label for="autorizada">Autorizada:</label>
-        <input type="checkbox" id="autorizada" name="autorizada" th:field="*{autorizada}"><br><br>
-
-        <label for="notas">Notas:</label><br>
-        <textarea id="notas" name="notas" th:field="*{notas}" rows="4" cols="50"></textarea><br><br>
-
-        <!-- Campo oculto para pasar el ID del empleado automáticamente -->
-        <input type="hidden" name="nombreUsuario" th:value="${#authentication.principal.username}" />
-        
-        <!-- Botón de envío -->
+        </select>
+        <label for="autorizada">¿Autorizada?:</label>
+        <input type="checkbox" id="autorizada" name="autorizada">
+        <label for="notas">Notas:</label>
+        <textarea id="notas" name="notas" rows="4" cols="50"></textarea>
         <button type="submit">Enviar</button>
     </form>
-
-    <!-- Lista de ausencias del usuario -->
     <h2>Ausencias registradas</h2>
     <table>
         <thead>
             <tr>
-                <th>Fecha de Inicio</th>
-                <th>Fecha de Fin</th>
-                <th>Tipo de Ausencia</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Tipo de ausencia</th>
                 <th>Autorizada</th>
                 <th>Notas</th>
             </tr>
         </thead>
         <tbody>
+            <!-- Aquí se mostrarán las ausencias registradas -->
             <tr th:each="ausencia : ${listaAusencias}">
-                <td th:text="${#dates.format(ausencia.fechaInicio, 'yyyy-MM-dd')}"></td>
-                <td th:text="${#dates.format(ausencia.fechaFin, 'yyyy-MM-dd')}"></td>
+                <td th:text="${ausencia.fechaInicio}"></td>
+                <td th:text="${ausencia.fechaFin}"></td>
                 <td th:text="${ausencia.tipoAusencia}"></td>
                 <td th:text="${ausencia.autorizada} ? 'Sí' : 'No'"></td>
                 <td th:text="${ausencia.notas}"></td>
             </tr>
         </tbody>
     </table>
-
-    <!-- Botones para acciones -->
-    <button onclick="location.href='/'" type="button">Volver al Inicio</button>
-
-    <!-- Script para inicializar jQuery UI Datepicker -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $( function() {
-            $( "#fechaInicio" ).datepicker({ dateFormat: 'yy-mm-dd' });
-            $( "#fechaFin" ).datepicker({ dateFormat: 'yy-mm-dd' });
-        } );
-    </script>
 </body>
 </html>

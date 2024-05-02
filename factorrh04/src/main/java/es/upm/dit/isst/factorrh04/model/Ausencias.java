@@ -2,6 +2,7 @@ package es.upm.dit.isst.factorrh04.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
+import java.time.*;
 
 @Entity
 public class Ausencias {
@@ -19,8 +20,8 @@ public class Ausencias {
     @Column(name = "nombre_usuario", length = 50) // Agregamos el nombre de usuario
     private String nombreUsuario; // Cambiamos Empleado a String
 
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private TipoAusencia tipoAusencia;
     private boolean autorizada;
     private String notas;
@@ -44,19 +45,19 @@ public class Ausencias {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
 
