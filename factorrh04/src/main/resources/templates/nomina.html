@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Nóminas</title>
+</head>
+<body>
+    <h1>Últimas Nóminas</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Salario Bruto</th>
+                <th>Deducciones</th>
+                <th>Bonificaciones</th>
+                <th>Total a Pagar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterar sobre las nóminas y mostrar los detalles -->
+            <th:block th:each="nomina : ${nominas}">
+                <tr>
+                    <td th:text="${nomina.fecha}"></td>
+                    <td th:text="${nomina.salarioBruto}"></td>
+                    <td th:text="${nomina.deducciones}"></td>
+                    <td th:text="${nomina.bonificaciones}"></td>
+                    <td th:text="${nomina.totalPago}"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>
