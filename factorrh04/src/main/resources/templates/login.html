@@ -29,18 +29,23 @@
             /* Añadido para cambiar la fuente a Monaco */
         }
 
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <header style="color: white; background-color:#12223b;">
-                    <h1 class="text-center" style="margin-top: 0;">FACTOR-RH</h1>
+                    <h1 class="text-center" style="margin-top: 10;">FACTOR-RH</h1>
                     <nav>
-                        <img th:src="@{/img/logo.jpg}" alt="Logo" class="logo">
-                    </nav>                
+                        <img th:src="@{/img/logo.jpeg}" id="imagen" class="logo" />
+                    </nav>
                 </header>
                 <h2 style="text-align: center;">Iniciar sesión</h2>
                 <form th:action="@{/login}" method="post">
