@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,39 +7,65 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-5">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <!-- Aquí puedes añadir tu barra de navegación y otros elementos del encabezado -->
+        <button onclick="location.href='/login';" type="button" class="btn btn-primary ml-auto">Cerrar sesion</button>
+    </nav>
+    <div style="margin-top: 20px;"></div>
 
-        <!-- Primer apartado: Fichar y Archivos -->
-        <div class="row">
-            <div class="col">
-                <h3>Acciones Rápidas</h3>
-                <button type="button" class="btn btn-primary" onclick="location.href='/fichar'">Fichar</button>
-                <button type="button" class="btn btn-secondary" onclick="location.href='/archivos'">Archivos</button>
+    <div class="container-fluid mt-4 text-center">
+        <h2>Bienvenido a la página de Recursos Humanos</h2>
+    </div>
+
+    <div class="container-fluid mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 25px;">Registro Horario</h5>
+                        <p class="card-text" style="font-size: 20px;">Aquí podrás registrar las horas de entrada y salida de jornada laboral</p>
+                        <div class="home-buttons">
+                            <button onclick="location.href='/fichar';" type="button" class="btn btn-primary btn-block">Fichar</button>
+                            <button onclick="location.href='/archivos'" type="button" class="btn btn-secondary btn-block mt-2">Archivos</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <!-- Segundo apartado: Gestionar Bajas, Vacaciones y Ausencias -->
-        <div class="row my-4">
-            <div class="col">
-                <h3>Gestión de Empleados</h3>
-                <div class="btn-group" role="group" aria-label="Solicitudes">
-                    <button type="button" class="btn btn-outline-warning" onclick="location.href='/ausencias'">Reportar Ausencia</button>
+    
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 25px;">Gestión de empleados</h5>
+                        <p class="card-text" style="font-size: 20px;">Aquí podrás administrar las distintas solicitudes de los empleados</p>
+                        <div class="home-buttons">
+                            <button type="button" class="btn btn-outline-primary btn-block" onclick="location.href='/gestionar/baja'">Gestionar Baja</button>
+                            <button type="button" class="btn btn-outline-success btn-block mt-2" onclick="location.href='/gestionar/vacaciones'">Gestionar Vacaciones</button>
+                            <button type="button" class="btn btn-outline-warning btn-block mt-2" onclick="location.href='/gestionar/ausencia'">Gestionar Ausencia</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 25px;">Gestión de talento</h5>
+                        <p class="card-text" style="font-size: 20px;">Aquí podrás ver las distintas aplicaciones para nuevos puestos de trabajo</p>
+                        <div class="home-buttons">
+                            <button type="button" class="btn btn-primary btn-block" onclick="location.href='/gestionar/talento'">Gestionar Talento</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Tercer apartado: Gestionar Talento -->
-        <div class="row">
-            <div class="col">
-                <h3>Gestión de Talento</h3>
-                <button type="button" class="btn btn-dark" onclick="location.href='/gestionar/talento'">Gestionar Talento</button>
-            </div>
-        </div>
-        <div>
-            <button onclick="location.href='/login';" type="button" class="btn btn-primary">Cerrar sesion</button>
-        </div>
-
     </div>
+    
+
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+        <div class="container">
+            <span class="text-muted">Factor RRHH</span>
+        </div>
+    </footer>
 
     <!-- Scripts necesarios para Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -46,4 +73,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-<!-- commit -->
