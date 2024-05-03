@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate; // Importa LocalDate
+
 import java.util.List;
 
 @Controller
@@ -41,4 +41,6 @@ public class AusenciasController {
         String username = auth.getName();
         return ausenciasRepository.findByNombreUsuario(username);
     }
+
+
 }
