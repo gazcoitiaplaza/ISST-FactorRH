@@ -49,7 +49,7 @@
         </thead>
         <tbody>
             <!-- Iterar sobre todas las ausencias -->
-            <tr th:each="ausencia : ${listaAusencias}">
+            <tr th:each="ausencia : ${todasLasAusencias}">
                 <td th:text="${ausencia.nombreUsuario}"></td>
                 <td th:text="${ausencia.fechaInicio}"></td>
                 <td th:text="${ausencia.fechaFin}"></td>
