@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AusenciasRepository extends CrudRepository<Ausencias, Long> {
     List<Ausencias> findByNombreUsuario(String nombreUsuario);
-    List<Ausencias> findAll();
+    // List<Ausencias> findAll();
 }
