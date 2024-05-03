@@ -41,4 +41,6 @@ public class AusenciasController {
         String username = auth.getName();
         return ausenciasRepository.findByNombreUsuario(username);
     }
+
+
 }

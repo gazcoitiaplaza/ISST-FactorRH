@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitudes de Ausencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .autorizada {
+            color: green;
+            font-weight: bold;
+        }
+        .no-autorizada {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Solicitudes de Ausencia</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Empleado</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Tipo de ausencia</th>
+                <th>Estado</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterar sobre todas las ausencias -->
+            <tr th:each="ausencia : ${listaAusencias}">
+                <td th:text="${ausencia.nombreUsuario}"></td>
+                <td th:text="${ausencia.fechaInicio}"></td>
+                <td th:text="${ausencia.fechaFin}"></td>
+                <td th:text="${ausencia.tipoAusencia}"></td>
+                <td th:class="${ausencia.autorizada} ? 'autorizada' : 'no-autorizada'">
+                    <span th:text="${ausencia.autorizada} ? 'Autorizada' : 'No autorizada'"></span>
+                </td>
+                <td th:text="${ausencia.notas}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
