@@ -9,7 +9,4 @@ import java.util.List;
 
 @Repository
 public interface NominaRepository extends CrudRepository<Nomina, Long> {
-
-    List<Nomina> findByEmpleadoCP(String idEmpleado);
-
 }
