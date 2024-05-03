@@ -1,11 +1,11 @@
-CREATE TABLE IF NOT EXISTS users (
-    username VARCHAR(50) PRIMARY KEY,
-    password VARCHAR(100),
-    enabled BOOLEAN NOT NULL DEFAULT true
-);
-
-CREATE TABLE IF NOT EXISTS authorities (
-    username VARCHAR(50),
-    authority VARCHAR(50),
-    CONSTRAINT fk_authorities_users FOREIGN KEY (username) REFERENCES users(username)
+CREATE TABLE IF NOT EXISTS Empleado (
+    id_Empleado VARCHAR(4) NOT NULL,
+    nombre VARCHAR(40) NOT NULL,
+    apellido_1 VARCHAR(40),
+    apellido_2 VARCHAR(40),
+    email VARCHAR(50),
+    IBAN VARCHAR(24),
+    password VARCHAR(50),
+    puesto VARCHAR(5),
+    PRIMARY KEY (id_Empleado)
 );
