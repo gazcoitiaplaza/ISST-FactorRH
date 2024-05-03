@@ -4,7 +4,7 @@ INSERT INTO Empleado (id_Empleado, nombre, apellido_1, apellido_2, email, IBAN, 
 ('0002', 'Guillermo', 'Azcoitia', 'Plaza', 'maria.lopez@example.com', 'ES6600190020962345678901', 'pass1234'),
 ('0003', 'Andres', 'Gil', 'Oliva', 'carlos.fernandez@example.com', 'ES6600190020963456789012', 'pass1234'),
 ('0004', 'Juan', 'Torres', 'Babe', 'lucia.garcia@example.com', 'ES6600190020964567890123', 'pass1234'),
-('0005', 'Alejandro', 'Arrunada', 'Morales', 'a.arrunada@example.com', 'ES6600190020965678901234', 'pass1234');
+('0005', 'Alejandro', 'Arrunada', 'Morales', 'david.martinez@example.com', 'ES6600190020965678901234', 'pass1234');
 
 INSERT INTO authorities (id_Empleado, puesto) VALUES
 ('0001', 'ROLE_EMP'),
