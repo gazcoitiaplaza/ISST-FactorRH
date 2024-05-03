@@ -1,7 +1,6 @@
 package es.upm.dit.isst.factorrh04.model;
 
 import jakarta.persistence.*;
-import java.util.Date;
 import java.time.*;
 
 @Entity
