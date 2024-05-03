@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Nomina {
-
+//Primero hay que hacer empleado
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
