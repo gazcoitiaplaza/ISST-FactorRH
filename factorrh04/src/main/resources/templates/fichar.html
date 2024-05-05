@@ -33,6 +33,7 @@
                         </div>
                         <span id="cronometro" style="font-size: 20px;">00:00:00</span>
                         <div id="inicio" style="font-size: 20px;"></div> <!-- Agregar el elemento donde se mostrará la fecha y hora de inicio -->
+                        <div id="fin" style="font-size: 20px;"></div> <!-- Agregar el elemento donde se mostrará la fecha y hora de fin -->
                     </div>
                 </div>
             </div>
@@ -110,6 +111,12 @@
             if (cronometroRunning) {
                 clearInterval(cronometroTimer);
                 cronometroRunning = false;
+
+                // Obtener la fecha y hora de fin
+                const fechaHoraFin = new Date().toLocaleString();
+
+                // Mostrar la fecha y hora de fin debajo del cronómetro
+                document.getElementById('fin').textContent = `Fin de la jornada Laboral: ${fechaHoraFin}`;
             }
         });
     
