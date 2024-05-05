@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultar Nóminas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Nóminas</title>
 </head>
 <body>
-    <h1>Últimas Nóminas</h1>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <button onclick="location.href='/';" type="button" class="btn btn-primary">Volver al Inicio</button>
+        <button onclick="location.href='/login';" type="button" class="btn btn-primary ml-auto">Cerrar sesion</button>
+    </nav>
+    <div class="container-fluid mt-4 text-center">
+        <h2>Ultimas nominas</h2>
+    </div>
 
     <table>
         <thead>
@@ -31,5 +38,10 @@
             </th:block>
         </tbody>
     </table>
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom text-right pr-4">
+        <div class="container">
+            <span class="text-muted">Factor RRHH</span>
+        </div>
+    </footer>
 </body>
 </html>
