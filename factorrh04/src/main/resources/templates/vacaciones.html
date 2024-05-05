@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Solicitar Vacaciones</title>
+    <title>Reportar Vacaciones</title>
     <style>
         .cuerpo {
             font-family: Arial, sans-serif;
@@ -75,32 +75,36 @@
         <!-- Contenedor para el contenido debajo de la barra de navegación -->
         <div class="cuerpo">
             <div class="text-center">
-                <h2>Solicitar vacaciones</h2>
+                <h2>Reportar Vacaciones</h2>
             </div>
-            <form action="/vacaciones/registrar" method="post">
+            <form action="/vacaciones/registrar" method="post"> <!-- Cambio de Ausencias a Vacaciones -->
                 <label for="fechaInicio">Fecha de inicio:</label>
                 <input type="date" id="fechaInicio" name="fechaInicio" required>
                 <label for="fechaFin">Fecha de fin:</label>
                 <input type="date" id="fechaFin" name="fechaFin" required>
+                <label for="autorizada">¿Autorizada?:</label>
+                <input type="checkbox" id="autorizada" name="autorizada">
                 <label for="notas">Notas:</label>
                 <textarea id="notas" name="notas" rows="4" cols="50"></textarea>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
-            <h2>Vacaciones registradas</h2>
+            <h2>Vacaciones registradas</h2> <!-- Cambio de Ausencias a Vacaciones -->
             <table>
                 <thead>
                     <tr>
                         <th>Fecha de inicio</th>
                         <th>Fecha de fin</th>
+                        <th>Autorizada</th>
                         <th>Notas</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aquí se mostrarán las vacacioness registradas -->
-                    <tr th:each="vacaciones : ${listavacacioness}">
-                        <td th:text="${vacaciones.fechaInicio}"></td>
-                        <td th:text="${vacaciones.fechaFin}"></td>
-                        <td th:text="${vacaciones.notas}"></td>
+                    <!-- Aquí se mostrarán las vacaciones registradas --> <!-- Cambio de Ausencias a Vacaciones -->
+                    <tr th:each="vacaciones : ${listaVacaciones}"> <!-- Cambio de Ausencias a Vacaciones -->
+                        <td th:text="${vacaciones.fechaInicio}"></td> <!-- Cambio de Ausencias a Vacaciones -->
+                        <td th:text="${vacaciones.fechaFin}"></td> <!-- Cambio de Ausencias a Vacaciones -->
+                        <td th:text="${vacaciones.autorizada} ? 'Sí' : 'No'"></td> <!-- Cambio de Ausencias a Vacaciones -->
+                        <td th:text="${vacaciones.notas}"></td> <!-- Cambio de Ausencias a Vacaciones -->
                     </tr>
                 </tbody>
             </table>
