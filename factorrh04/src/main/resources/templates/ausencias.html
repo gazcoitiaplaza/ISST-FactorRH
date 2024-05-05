@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Reportar Ausencia</title>
     <style>
-        .cuerpo{
+        .cuerpo {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
@@ -56,6 +56,13 @@
         th {
             background-color: #f2f2f2;
         }
+
+        /* Estilos para el footer */
+        .footer {
+            margin-top: 20px;
+            text-align: right;
+            padding-right: 20px; /* Agregar espacio a la derecha del footer */
+        }
     </style>
 </head>
 
@@ -64,53 +71,58 @@
         <button onclick="location.href='/';" type="button" class="btn btn-primary">Volver al Inicio</button>
         <button onclick="location.href='/login';" type="button" class="btn btn-primary ml-auto">Cerrar sesion</button>
     </nav>
-    <div class="container-fluid mt-4 text-center">
-        <h2>Reportar Ausencia</h2>
+    <div class="container-fluid mt-4">
+        <!-- Contenedor para el contenido debajo de la barra de navegación -->
+        <div class="cuerpo">
+            <div class="text-center">
+                <h2>Reportar Ausencia</h2>
+            </div>
+            <form action="/ausencias/registrar" method="post">
+                <label for="fechaInicio">Fecha de inicio:</label>
+                <input type="date" id="fechaInicio" name="fechaInicio" required>
+                <label for="fechaFin">Fecha de fin:</label>
+                <input type="date" id="fechaFin" name="fechaFin" required>
+                <label for="tipoAusencia">Tipo de ausencia:</label>
+                <select id="tipoAusencia" name="tipoAusencia" required>
+                    <option value="BAJA">Baja</option>
+                    <option value="AUSENCIA">Ausencia</option>
+                    <option value="VACACIONES">Vacaciones</option>
+                </select>
+                <label for="autorizada">¿Autorizada?:</label>
+                <input type="checkbox" id="autorizada" name="autorizada">
+                <label for="notas">Notas:</label>
+                <textarea id="notas" name="notas" rows="4" cols="50"></textarea>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+            <h2>Ausencias registradas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de fin</th>
+                        <th>Tipo de ausencia</th>
+                        <th>Autorizada</th>
+                        <th>Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se mostrarán las ausencias registradas -->
+                    <tr th:each="ausencia : ${listaAusencias}">
+                        <td th:text="${ausencia.fechaInicio}"></td>
+                        <td th:text="${ausencia.fechaFin}"></td>
+                        <td th:text="${ausencia.tipoAusencia}"></td>
+                        <td th:text="${ausencia.autorizada} ? 'Sí' : 'No'"></td>
+                        <td th:text="${ausencia.notas}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div id="cuerpo">
-        <form action="/ausencias/registrar" method="post">
-            <label for="fechaInicio">Fecha de inicio:</label>
-            <input type="date" id="fechaInicio" name="fechaInicio" required>
-            <label for="fechaFin">Fecha de fin:</label>
-            <input type="date" id="fechaFin" name="fechaFin" required>
-            <label for="tipoAusencia">Tipo de ausencia:</label>
-            <select id="tipoAusencia" name="tipoAusencia" required>
-                <option value="BAJA">Baja</option>
-                <option value="AUSENCIA">Ausencia</option>
-                <option value="VACACIONES">Vacaciones</option>
-            </select>
-            <label for="autorizada">¿Autorizada?:</label>
-            <input type="checkbox" id="autorizada" name="autorizada">
-            <label for="notas">Notas:</label>
-            <textarea id="notas" name="notas" rows="4" cols="50"></textarea>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-        <h2>Ausencias registradas</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Fecha de inicio</th>
-                    <th>Fecha de fin</th>
-                    <th>Tipo de ausencia</th>
-                    <th>Autorizada</th>
-                    <th>Notas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aquí se mostrarán las ausencias registradas -->
-                <tr th:each="ausencia : ${listaAusencias}">
-                    <td th:text="${ausencia.fechaInicio}"></td>
-                    <td th:text="${ausencia.fechaFin}"></td>
-                    <td th:text="${ausencia.tipoAusencia}"></td>
-                    <td th:text="${ausencia.autorizada} ? 'Sí' : 'No'"></td>
-                    <td th:text="${ausencia.notas}"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <footer class="footer mt-auto py-3 bg-light fixed-bottom text-right pr-4">
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
         <div class="container">
-            <span class="text-muted">Factor RRHH</span>
+            <div class="text-center">
+                <span class="text-muted">Factor RRHH</span>
+            </div>
         </div>
     </footer>
 </body>
