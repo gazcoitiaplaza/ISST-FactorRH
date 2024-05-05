@@ -75,7 +75,7 @@
             <div class="text-center">
                 <h2>Reportar Baja</h2>
             </div>
-            <form action="/bajas/registrar" method="post">
+            <form th:action="@{/bajas/registrar}" method="post">
                 <label for="fechaInicio">Fecha de inicio:</label>
                 <input type="date" id="fechaInicio" name="fechaInicio" required>
                 <label for="fechaFin">Fecha de fin:</label>
