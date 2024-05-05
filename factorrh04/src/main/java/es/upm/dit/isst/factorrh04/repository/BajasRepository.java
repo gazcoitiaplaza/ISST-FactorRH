@@ -1,6 +1,5 @@
 package es.upm.dit.isst.factorrh04.repository;
 
-import es.upm.dit.isst.factorrh04.model.Ausencias;
 import es.upm.dit.isst.factorrh04.model.Bajas;
 
 import java.util.List;
