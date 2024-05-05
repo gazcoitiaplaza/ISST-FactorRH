@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <head>
     <meta charset="UTF-8">
     <title>Reportar Baja</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         .cuerpo {
             font-family: Arial, sans-serif;
@@ -69,43 +69,47 @@
         <button onclick="location.href='/';" type="button" class="btn btn-primary">Volver al Inicio</button>
         <button onclick="location.href='/login';" type="button" class="btn btn-primary ml-auto">Cerrar sesion</button>
     </nav>
-    <div class="cuerpo">
-        <div class="text-center">
-            <h2>Reportar Ausencia</h2>
+    <div class="container-fluid mt-4">
+        <!-- Contenedor para el contenido debajo de la barra de navegación -->
+        <div class="cuerpo">
+            <div class="text-center">
+                <h2>Reportar Baja</h2>
+            </div>
+            <form action="/ausencias/registrar" method="post">
+                <label for="fechaInicio">Fecha de inicio:</label>
+                <input type="date" id="fechaInicio" name="fechaInicio" required>
+                <label for="fechaFin">Fecha de fin:</label>
+                <input type="date" id="fechaFin" name="fechaFin" required>
+                <label for="autorizada">¿Autorizada?:</label>
+                <input type="checkbox" id="autorizada" name="autorizada">
+                <label for="notas">Notas:</label>
+                <textarea id="notas" name="notas" rows="4" cols="50"></textarea>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+            <h2>Bajas registradas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de fin</th>
+                        <th>Tipo de baja</th>
+                        <th>Autorizada</th>
+                        <th>Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se mostrarán las bajas registradas -->
+                    <tr th:each="baja : ${listaBajas}">
+                        <td th:text="${baja.fechaInicio}"></td>
+                        <td th:text="${baja.fechaFin}"></td>
+                        <td th:text="${baja.tipoBaja}"></td>
+                        <td th:text="${baja.autorizada} ? 'Sí' : 'No'"></td>
+                        <td th:text="${baja.notas}"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    <form action="/ausencias/registrar" method="post">
-        <label for="fechaInicio">Fecha de inicio:</label>
-        <input type="date" id="fechaInicio" name="fechaInicio" required>
-        <label for="fechaFin">Fecha de fin:</label>
-        <input type="date" id="fechaFin" name="fechaFin" required>
-        <label for="autorizada">¿Autorizada?:</label>
-        <input type="checkbox" id="autorizada" name="autorizada">
-        <label for="notas">Notas:</label>
-        <textarea id="notas" name="notas" rows="4" cols="50"></textarea>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
-    <h2>Bajas registradas</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Fecha de inicio</th>
-                <th>Fecha de fin</th>
-                <th>Tipo de baja</th>
-                <th>Autorizada</th>
-                <th>Notas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Aquí se mostrarán las ausencias registradas -->
-            <tr th:each="baja : ${listaBajas}">
-                <td th:text="${baja.fechaInicio}"></td>
-                <td th:text="${baja.fechaFin}"></td>
-                <td th:text="${baja.tipoBaja}"></td>
-                <td th:text="${baja.autorizada} ? 'Sí' : 'No'"></td>
-                <td th:text="${baja.notas}"></td>
-            </tr>
-        </tbody>
-    </table>
+    </div>
     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
         <div class="container">
             <div class="text-center">
@@ -113,6 +117,5 @@
             </div>
         </div>
     </footer>
-    </div>
 </body>
 </html>
