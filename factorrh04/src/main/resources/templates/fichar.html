@@ -40,12 +40,30 @@
                     <div class="card-body">
                         <h5 class="card-title" style="font-size: 25px;">Registro de Fichajes</h5>
                         <p class="card-text" style="font-size: 20px;">Aquí podrás revisar los registros de días trabajados pasados</p>
-                        <ul id="timeEntries"></ul>  
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Hora de inicio</th>
+                                    <th>Hora de fin</th>
+                                    <th>Duración</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="entry : ${workEntries}">
+                                    <td th:text="${entry.startTime}"></td>
+                                    <td th:text="${entry.endTime}"></td>
+                                    <td th:text="${entry.duration}"></td>
+                                    <td th:text="${entry.date}"></td>
+                                </tr>
+                            </tbody>
+                        </table>  
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <footer class="footer mt-auto py-3 bg-light fixed-bottom">
         <div class="container">
