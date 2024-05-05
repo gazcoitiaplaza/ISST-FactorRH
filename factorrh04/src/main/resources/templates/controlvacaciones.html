@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Solicitudes de Ausencia</title>
+    <title>Solicitudes de Vacaciones</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,7 +51,7 @@
     </style>
 </head>
 <body>
-    <h1>Solicitudes de Ausencia</h1>
+    <h1>Solicitudes de Vacaciones</h1>
     <table>
         <thead>
             <tr>
@@ -63,15 +63,15 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Iterar sobre todas las ausencias -->
-            <tr th:each="ausencia : ${todasLasAusencias}">
-                <td th:text="${ausencia.nombreUsuario}"></td>
-                <td th:text="${ausencia.fechaInicio}"></td>
-                <td th:text="${ausencia.fechaFin}"></td>
-                <td th:class="${ausencia.autorizada} ? 'autorizada' : 'no-autorizada'">
-                    <span th:text="${ausencia.autorizada} ? 'Autorizada' : 'No autorizada'"></span>
+            <!-- Iterar sobre todas las vacaciones -->
+            <tr th:each="vacacion : ${todasLasVacaciones}">
+                <td th:text="${vacacion.nombreUsuario}"></td>
+                <td th:text="${vacacion.fechaInicio}"></td>
+                <td th:text="${vacacion.fechaFin}"></td>
+                <td th:class="${vacacion.autorizada} ? 'autorizada' : 'no-autorizada'">
+                    <span th:text="${vacacion.autorizada} ? 'Autorizada' : 'No autorizada'"></span>
                 </td>
-                <td th:text="${ausencia.notas}"></td>
+                <td th:text="${vacacion.notas}"></td>
             </tr>
         </tbody>
     </table>

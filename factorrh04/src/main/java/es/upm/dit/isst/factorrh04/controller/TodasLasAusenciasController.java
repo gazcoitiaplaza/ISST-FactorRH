@@ -15,7 +15,7 @@ public class TodasLasAusenciasController {
     @Autowired
     private AusenciasRepository ausenciasRepository;
 
-    @GetMapping("/todas")
+    @GetMapping("/todasausencias")
     public String mostrarTodasLasAusencias(Model model) {
         List<Ausencias> todasLasAusencias = ausenciasRepository.findAll();
         model.addAttribute("todasLasAusencias", todasLasAusencias);
