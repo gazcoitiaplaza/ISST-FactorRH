@@ -29,7 +29,7 @@
                         <div class="cronometro-buttons">
                             <button id="startCronometro" class="btn btn-success">Iniciar</button>
                             <button id="stopCronometro" class="btn btn-danger">Detener</button>
-                            <button id="saveCronometro" class="btn btn-primary">Guardar</button>
+                            <button id="saveCronometro" class="btn btn-primary" disabled>Guardar</button>
                         </div>
                         <span id="cronometro" style="font-size: 20px;">00:00:00</span>
                         <div id="inicio" style="font-size: 20px;"></div> <!-- Agregar el elemento donde se mostrará la fecha y hora de inicio -->
@@ -43,7 +43,7 @@
                     <div class="card-body">
                         <h5 class="card-title" style="font-size: 25px;">Registro de Fichajes</h5>
                         <p class="card-text" style="font-size: 20px;">Aquí podrás revisar los registros de días trabajados pasados</p>
-                        <table class="table table-striped">
+                        <table id="registroTabla" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Hora de inicio</th>
@@ -53,12 +53,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="entry : ${workEntries}">
-                                    <td th:text="${entry.startTime}"></td>
-                                    <td th:text="${entry.endTime}"></td>
-                                    <td th:text="${entry.duration}"></td>
-                                    <td th:text="${entry.date}"></td>
-                                </tr>
+                                <!-- Aquí se mostrarán los datos de los fichajes -->
                             </tbody>
                         </table>  
                     </div>
@@ -73,6 +68,7 @@
             <div class="text-center">
                 <span class="text-muted">Factor RRHH</span>
             </div>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -83,6 +79,7 @@
         let cronometroTimer;
         let cronometroTime = 0;
         let cronometroRunning = false;
+        let guardarEnabled = false;
     
         function updateCronometroDisplay() {
             const hours = Math.floor(cronometroTime / 3600).toString().padStart(2, '0');
@@ -117,33 +114,50 @@
 
                 // Mostrar la fecha y hora de fin debajo del cronómetro
                 document.getElementById('fin').textContent = `Fin de la jornada Laboral: ${fechaHoraFin}`;
+
+                // Habilitar el botón de guardar
+                document.getElementById('saveCronometro').disabled = false;
+                guardarEnabled = true;
             }
         });
     
         document.getElementById('saveCronometro').addEventListener('click', function() {
-            if (cronometroRunning) {
-                stopCronometro();  // Detiene el cronómetro si está corriendo
-            }
-            if (cronometroTime > 0) {
-                // Envía el tiempo a tu backend para que se guarde en la base de datos
-                fetch('/saveTime', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ time: cronometroTime }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    cronometroTime = 0;
-                    updateCronometroDisplay(0);  // Resetea la visualización del cronómetro
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-            } else {
-                alert("Por favor, inicia el cronómetro antes de guardar.");
+            if (guardarEnabled) {
+                // Detiene el cronómetro si está corriendo
+                if (cronometroRunning) {
+                    clearInterval(cronometroTimer);
+                    cronometroRunning = false;
+                }
+
+                // Obtener la fecha y hora de fin
+                const fechaHoraFin = new Date().toLocaleString();
+
+                // Mostrar la fecha y hora de fin debajo del cronómetro
+                document.getElementById('fin').textContent = `Fin de la jornada Laboral: ${fechaHoraFin}`;
+
+                // Insertar los datos en la tabla
+                const registroTabla = document.getElementById('registroTabla').getElementsByTagName('tbody')[0];
+                const newRow = registroTabla.insertRow();
+                const startTimeCell = newRow.insertCell(0);
+                const endTimeCell = newRow.insertCell(1);
+                const durationCell = newRow.insertCell(2);
+                const dateCell = newRow.insertCell(3);
+                const hours = Math.floor(cronometroTime / 3600).toString().padStart(2, '0');
+                const minutes = Math.floor((cronometroTime % 3600) / 60).toString().padStart(2, '0');
+                const seconds = (cronometroTime % 60).toString().padStart(2, '0');
+                const duration = `${hours}:${minutes}:${seconds}`;
+                startTimeCell.textContent = document.getElementById('inicio').textContent.substring(39);
+                endTimeCell.textContent = document.getElementById('fin').textContent.substring(36);
+                durationCell.textContent = duration;
+                dateCell.textContent = fechaHoraFin.substring(0, 8);
+
+                // Restablecer el cronómetro a 00:00:00
+                cronometroTime = 0;
+                updateCronometroDisplay();
+
+                // Deshabilitar el botón de guardar
+                document.getElementById('saveCronometro').disabled = true;
+                guardarEnabled = false;
             }
         });
 
