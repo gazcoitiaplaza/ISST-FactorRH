@@ -12,5 +12,3 @@ INSERT INTO authorities (email, authority) VALUES
 ('andres.gil@factorrh.com', 'ROLE_EMP'),
 ('guijuan.torres@factorrh.com', 'ROLE_EMP'),
 ('alejandro.arrunada@factorrh.com', 'ROLE_RH');
-
-

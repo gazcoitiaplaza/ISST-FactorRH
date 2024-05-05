@@ -58,6 +58,15 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Aquí se insertarán dinámicamente las filas de la tabla con los datos de los empleados -->
+                <!-- Se reemplazará esta parte con el código generado por el servidor -->
+                <tr th:each="empleado : ${empleados}">
+                    <td th:text="${empleado.idEmpleado}">ID Empleado</td>
+                    <td th:text="${empleado.nombre}">Nombre</td>
+                    <td th:text="${empleado.apellido1}">Apellido 1</td>
+                    <td th:text="${empleado.apellido2}">Apellido 2</td>
+                    <td th:text="${empleado.email}">Email</td>
+                </tr>
             </tbody>
         </table>
     </div>
