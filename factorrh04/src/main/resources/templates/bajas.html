@@ -92,7 +92,6 @@
                     <tr>
                         <th>Fecha de inicio</th>
                         <th>Fecha de fin</th>
-                        <th>Tipo de baja</th>
                         <th>Autorizada</th>
                         <th>Notas</th>
                     </tr>
@@ -102,7 +101,6 @@
                     <tr th:each="baja : ${listaBajas}">
                         <td th:text="${baja.fechaInicio}"></td>
                         <td th:text="${baja.fechaFin}"></td>
-                        <td th:text="${baja.tipoBaja}"></td>
                         <td th:text="${baja.autorizada} ? 'Sí' : 'No'"></td>
                         <td th:text="${baja.notas}"></td>
                     </tr>

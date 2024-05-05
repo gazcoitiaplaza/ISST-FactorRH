@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitudes de Bajas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .autorizada {
+            color: green;
+            font-weight: bold;
+        }
+        .no-autorizada {
+            color: red;
+            font-weight: bold;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            text-decoration: none;
+            margin-top: 20px; /* Añadir margen superior */
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Solicitudes de Bajas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Empleado</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Estado</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterar sobre todas las bajas -->
+            <tr th:each="baja : ${todasLasBajas}">
+                <td th:text="${baja.nombreUsuario}"></td>
+                <td th:text="${baja.fechaInicio}"></td>
+                <td th:text="${baja.fechaFin}"></td>
+                <td th:class="${baja.autorizada} ? 'autorizada' : 'no-autorizada'">
+                    <span th:text="${baja.autorizada} ? 'Autorizada' : 'No autorizada'"></span>
+                </td>
+                <td th:text="${baja.notas}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/home_rh}" class="btn">Volver al Inicio</a> <!-- Botón para volver al inicio -->
+</body>
+</html>

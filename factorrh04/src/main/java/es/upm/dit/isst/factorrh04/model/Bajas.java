@@ -6,12 +6,6 @@ import java.time.*;
 @Entity
 public class Bajas {
 
-    public enum TipoBaja {
-        BAJA,
-        AUSENCIA,
-        VACACIONES
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -21,7 +15,6 @@ public class Bajas {
 
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    private TipoBaja tipoBaja;
     private boolean autorizada;
     private String notas;
 
@@ -58,14 +51,6 @@ public class Bajas {
 
     public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
-    }
-
-    public TipoBaja getTipoAusencia() {
-        return tipoBaja;
-    }
-
-    public void setTipoAusencia(TipoBaja tipoAusencia) {
-        this.tipoBaja = tipoAusencia;
     }
 
     public boolean isAutorizada() {
