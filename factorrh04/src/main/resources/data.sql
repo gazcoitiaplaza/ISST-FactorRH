@@ -12,3 +12,5 @@ INSERT INTO authorities (id_Empleado, puesto) VALUES
 ('0003', 'ROLE_EMP'),
 ('0004', 'ROLE_EMP'),
 ('0005', 'ROLE_RH');
+
+
