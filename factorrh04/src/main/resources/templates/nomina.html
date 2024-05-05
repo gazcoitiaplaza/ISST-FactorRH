@@ -1,48 +1,82 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <title>Nóminas</title>
+    <title>Gestión de Nómina</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .autorizada {
+            color: green;
+            font-weight: bold;
+        }
+        .no-autorizada {
+            color: red;
+            font-weight: bold;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            text-decoration: none;
+            margin-top: 20px; /* Añadir margen superior */
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <button onclick="location.href='/';" type="button" class="btn btn-primary">Volver al Inicio</button>
-        <button onclick="location.href='/login';" type="button" class="btn btn-primary ml-auto">Cerrar sesion</button>
-    </nav>
-    <div class="container-fluid mt-4 text-center">
-        <h2>Ultimas nominas</h2>
-    </div>
-
+    <h1>Gestión de Nóminas</h1>
     <table>
         <thead>
             <tr>
                 <th>Fecha</th>
-                <th>Salario Bruto</th>
+                <th>Salario</th>
+                <th>Bruto</th>
                 <th>Deducciones</th>
                 <th>Bonificaciones</th>
                 <th>Total a Pagar</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Iterar sobre las nóminas y mostrar los detalles -->
-            <th:block th:each="nomina : ${nominas}">
-                <tr>
-                    <td th:text="${nomina.fecha}"></td>
-                    <td th:text="${nomina.salarioBruto}"></td>
-                    <td th:text="${nomina.deducciones}"></td>
-                    <td th:text="${nomina.bonificaciones}"></td>
-                    <td th:text="${nomina.totalPago}"></td>
-                </tr>
-            </th:block>
+            <!-- Iterar sobre todas las bajas -->
+            <tr th:each="nomina : ${todasLasNominas}">
+                <td th:text="${nomina.empleado}"></td>
+                <td th:text="${nomina.mes}"></td>
+                <td th:text="${nomina.anio}"></td>
+                <td th:text="${nomina.salarioBruto}"></td>
+                <td th:text="${nomina.deducciones}"></td>
+                <td th:text="${nomina.bonificaciones}"></td>
+                <td th:text="${nomina.totalPago}"></td>
+            </tr>
         </tbody>
     </table>
-    <footer class="footer mt-auto py-3 bg-light fixed-bottom text-right pr-4">
-        <div class="container">
-            <div class="text-center">
-                <span class="text-muted">Factor RRHH</span>
-            </div>
-    </footer>
+    <a th:href="@{/home_rh}" class="btn">Volver al Inicio</a> <!-- Botón para volver al inicio -->
 </body>
 </html>
