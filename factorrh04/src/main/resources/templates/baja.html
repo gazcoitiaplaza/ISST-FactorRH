@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reportar Baja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="date"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin-top: 5px;
+        }
+        button[type="submit"], .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button[type="submit"]:hover, .btn:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reportar Baja</h1>
+    <form action="/ausencias/registrar" method="post">
+        <label for="fechaInicio">Fecha de inicio:</label>
+        <input type="date" id="fechaInicio" name="fechaInicio" required>
+        <label for="fechaFin">Fecha de fin:</label>
+        <input type="date" id="fechaFin" name="fechaFin" required>
+        <label for="tipoAusencia">Tipo de ausencia:</label>
+        <select id="tipoAusencia" name="tipoAusencia" required>
+            <option value="BAJA">Baja</option>
+        </select>
+        <label for="autorizada">¿Autorizada?:</label>
+        <input type="checkbox" id="autorizada" name="autorizada">
+        <label for="notas">Notas:</label>
+        <textarea id="notas" name="notas" rows="4" cols="50"></textarea>
+        <button type="submit">Enviar</button>
+        <a href="/" class="btn">Volver al Inicio</a>
+    </form>
+    <h2>Bajas registradas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Tipo de baja</th>
+                <th>Autorizada</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se mostrarán las ausencias registradas -->
+            <tr th:each="baja : ${listaBajas}">
+                <td th:text="${baja.fechaInicio}"></td>
+                <td th:text="${baja.fechaFin}"></td>
+                <td th:text="${baja.tipoBaja}"></td>
+                <td th:text="${baja.autorizada} ? 'Sí' : 'No'"></td>
+                <td th:text="${baja.notas}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
