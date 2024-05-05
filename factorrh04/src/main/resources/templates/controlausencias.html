@@ -58,7 +58,6 @@
                 <th>Empleado</th>
                 <th>Fecha de inicio</th>
                 <th>Fecha de fin</th>
-                <th>Tipo de ausencia</th>
                 <th>Estado</th>
                 <th>Notas</th>
             </tr>
@@ -69,7 +68,6 @@
                 <td th:text="${ausencia.nombreUsuario}"></td>
                 <td th:text="${ausencia.fechaInicio}"></td>
                 <td th:text="${ausencia.fechaFin}"></td>
-                <td th:text="${ausencia.tipoAusencia}"></td>
                 <td th:class="${ausencia.autorizada} ? 'autorizada' : 'no-autorizada'">
                     <span th:text="${ausencia.autorizada} ? 'Autorizada' : 'No autorizada'"></span>
                 </td>

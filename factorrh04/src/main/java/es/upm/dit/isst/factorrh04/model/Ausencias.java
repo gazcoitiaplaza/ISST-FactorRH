@@ -21,7 +21,6 @@ public class Ausencias {
 
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    private TipoAusencia tipoAusencia;
     private boolean autorizada;
     private String notas;
 
@@ -58,14 +57,6 @@ public class Ausencias {
 
     public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
-    }
-
-    public TipoAusencia getTipoAusencia() {
-        return tipoAusencia;
-    }
-
-    public void setTipoAusencia(TipoAusencia tipoAusencia) {
-        this.tipoAusencia = tipoAusencia;
     }
 
     public boolean isAutorizada() {
