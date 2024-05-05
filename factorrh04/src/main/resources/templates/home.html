@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Factor-RH</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <!-- Aquí puedes añadir tu barra de navegación y otros elementos del encabezado -->
@@ -15,26 +17,28 @@
     <div class="container-fluid mt-4 text-center">
         <h2>Bienvenido a la página de inicio</h2>
     </div>
-    
 
-<div class="container-fluid mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title" style="font-size: 25px;">Registro Horario</h5>
-                    <p class="card-text" style="font-size: 20px;">Aquí podrás registrar las horas de entrada y salida de jornada laboral</p>
-                    <div class="home-buttons">
+
+    <div class="container-fluid mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 25px;">Registro Horario</h5>
+                        <p class="card-text" style="font-size: 20px;">Aquí podrás registrar las horas de entrada y
+                            salida de jornada laboral</p>
                         <div class="home-buttons">
-                            <div class="text-center" style="padding: 10px;">
-                                <img src="https://img.icons8.com/ios/50/000000/time-machine.png"/>
+                            <div class="home-buttons">
+                                <div class="text-center" style="padding: 10px;">
+                                    <img src="https://img.icons8.com/ios/50/000000/time-machine.png" />
+                                </div>
+                                <button onclick="location.href='/fichar';" type="button"
+                                    class="btn btn-primary btn-block">Fichar</button>
                             </div>
-                            <button onclick="location.href='/fichar';" type="button" class="btn btn-primary btn-block">Fichar</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         <div class="col-md-4 mb-4">
             <div class="card h-100">
@@ -42,7 +46,7 @@
                     <h5 class="card-title" style="font-size: 25px;">Solicitudes</h5>
                     <p class="card-text" style="font-size: 20px;">Aquí podrás registrar las distintas solicitudes relativas a bajas o a vacaciones</p>
                     <div class="solicitud-container">
-                        <button type="button" class="btn btn-outline-primary btn-block" onclick="location.href='/baja'">Solicitar Baja</button>
+                        <button type="button" class="btn btn-outline-primary btn-block" onclick="location.href='/ausencias'">Solicitar Baja</button>
                         <button type="button" class="btn btn-outline-success btn-block mt-2" onclick="location.href='/ausencias'">Solicitar Vacaciones</button>
                         <button type="button" class="btn btn-outline-warning btn-block mt-2" onclick="location.href='/ausencias'">Reportar Ausencia</button>
                     </div>
@@ -50,17 +54,19 @@
             </div>
         </div>
 
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title" style="font-size: 25px;">Nomina</h5>
-                    <p class="card-text" style="font-size: 20px;">Aqui podrás acceder a los distintos datos de tu nomina, con las horas trabajadas y la remuneración pertinente a ellas</p>
-                    <button onclick="location.href='/nomina';" type="button" class="btn btn-primary btn-block">Ver mi nomina</button>                    
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 25px;">Nomina</h5>
+                        <p class="card-text" style="font-size: 20px;">Aqui podrás acceder a los distintos datos de tu
+                            nomina, con las horas trabajadas y la remuneración pertinente a ellas</p>
+                        <button onclick="location.href='/nomina';" type="button" class="btn btn-primary btn-block">Ver
+                            mi nomina</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <div class="container mt-5">
@@ -69,16 +75,18 @@
     </div>
     <div class="solicitud-container">
 
-    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom text-right pr-4">
         <div class="container">
-            <span class="text-muted">Factor RRHH</span>
-        </div>
+            <div class="text-center">
+                <span class="text-muted">Factor RRHH</span>
+            </div>
     </footer>
-    
 
-    <!-- Scripts al final del body para cargar la página más rápido -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <!-- Scripts al final del body para cargar la página más rápido -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
