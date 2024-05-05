@@ -6,11 +6,6 @@ import java.time.*;
 @Entity
 public class Ausencias {
 
-    public enum TipoAusencia {
-        BAJA,
-        AUSENCIA,
-        VACACIONES
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

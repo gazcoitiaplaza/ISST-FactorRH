@@ -94,7 +94,6 @@
                     <tr>
                         <th>Fecha de inicio</th>
                         <th>Fecha de fin</th>
-                        <th>Tipo de ausencia</th>
                         <th>Autorizada</th>
                         <th>Notas</th>
                     </tr>
@@ -104,7 +103,6 @@
                     <tr th:each="ausencia : ${listaAusencias}">
                         <td th:text="${ausencia.fechaInicio}"></td>
                         <td th:text="${ausencia.fechaFin}"></td>
-                        <td th:text="${ausencia.tipoAusencia}"></td>
                         <td th:text="${ausencia.autorizada} ? 'Sí' : 'No'"></td>
                         <td th:text="${ausencia.notas}"></td>
                     </tr>
