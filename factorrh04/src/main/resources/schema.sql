@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS empleado (
     id_empleado VARCHAR(2) NOT NULL,
     nombre VARCHAR(40) NOT NULL,
-    apellido_1 VARCHAR(40),
-    apellido_2 VARCHAR(40),
+    apellido1 VARCHAR(40),
+    apellido2 VARCHAR(40),
     email VARCHAR(50) NOT NULL PRIMARY KEY,
     IBAN VARCHAR(24),
     password VARCHAR(50) NOT NULL,

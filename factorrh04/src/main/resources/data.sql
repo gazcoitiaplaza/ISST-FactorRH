@@ -1,5 +1,5 @@
 -- Inserción de datos de ejemplo en la tabla Empleado
-INSERT INTO empleado (id_empleado, nombre, apellido_1, apellido_2, email, IBAN, password) VALUES
+INSERT INTO empleado (id_empleado, nombre, apellido1, apellido2, email, IBAN, password) VALUES
 ('0001', 'Alvaro', 'Colin', 'Cosano', 'alvaro.colin@factorrh.com', 'ES6600190020961234567890', 'pass1234'),
 ('0002', 'Guillermo', 'Azcoitia', 'Plaza', 'guillermo.azcoitia@factorrh.com', 'ES6600190020962345678901', 'pass1234'),
 ('0003', 'Andres', 'Gil', 'Oliva', 'andres.gil@factorrh.com', 'ES6600190020963456789012', 'pass1234'),

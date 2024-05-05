@@ -15,10 +15,10 @@ public class Empleado {
     @Column(name = "nombre", length = 40)
     @NotBlank
     private String nombre;
-    @Column(name = "apellido_1", length = 40)
-    private String apellido_1;
-    @Column(name = "apellido_2", length = 40)
-    private String apellido_2;
+    @Column(name = "apellido1", length = 40)
+    private String apellido1;
+    @Column(name = "apellido2", length = 40)
+    private String apellido2;
     @Column(name = "email", length = 50)
     private String email;
     @Column(name = "IBAN", length = 24)
@@ -55,20 +55,20 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public String getApellido_1() {
-        return apellido_1;
+    public String getApellido1() {
+        return apellido1;
     }
 
-    public void setApellido_1(String apellido_1) {
-        this.apellido_1 = apellido_1;
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
     }
 
-    public String getApellido_2() {
-        return apellido_2;
+    public String getApellido2() {
+        return apellido2;
     }
 
-    public void setApellido_2(String apellido_2) {
-        this.apellido_2 = apellido_2;
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
     }
 
     public String getEmail() {
