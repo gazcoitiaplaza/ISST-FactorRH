@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Empleado {
-
+    
     @Id
     @NotBlank
     @Column(name = "id_Empleado", length = 4)
