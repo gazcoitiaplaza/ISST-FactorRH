@@ -1,80 +1,114 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
 <head>
     <meta charset="UTF-8">
     <title>Solicitudes de Ausencia</title>
     <style>
-        body {
+        .cuerpo {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         h1 {
             color: #333;
         }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 5px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            margin-bottom: 20px;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
+
         th {
             background-color: #f2f2f2;
         }
-        .autorizada {
-            color: green;
-            font-weight: bold;
-        }
-        .no-autorizada {
-            color: red;
-            font-weight: bold;
-        }
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 10px;
-            text-decoration: none;
-            margin-top: 20px; /* Añadir margen superior */
-        }
 
-        .btn:hover {
-            background-color: #45a049;
+        /* Estilos para el footer */
+        .footer {
+            margin-top: 20px;
+            text-align: right;
+            padding-right: 20px;
+            /* Agregar espacio a la derecha del footer */
         }
     </style>
 </head>
+
 <body>
-    <h1>Solicitudes de Ausencia</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Empleado</th>
-                <th>Fecha de inicio</th>
-                <th>Fecha de fin</th>
-                <th>Estado</th>
-                <th>Notas</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Iterar sobre todas las ausencias -->
-            <tr th:each="ausencia : ${todasLasAusencias}">
-                <td th:text="${ausencia.nombreUsuario}"></td>
-                <td th:text="${ausencia.fechaInicio}"></td>
-                <td th:text="${ausencia.fechaFin}"></td>
-                <td th:class="${ausencia.autorizada} ? 'autorizada' : 'no-autorizada'">
-                    <span th:text="${ausencia.autorizada} ? 'Autorizada' : 'No autorizada'"></span>
-                </td>
-                <td th:text="${ausencia.notas}"></td>
-            </tr>
-        </tbody>
-    </table>
-    <a th:href="@{/home_rh}" class="btn">Volver al Inicio</a> <!-- Botón para volver al inicio -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <button onclick="location.href='/home_rh';" type="button" class="btn btn-primary">Volver al Inicio</button>
+        <button onclick="location.href='/login';" type="button" class="btn btn-primary ml-auto">Cerrar sesion</button>
+    </nav>
+    <div class="container-fluid mt-4">
+        <!-- Contenedor para el contenido debajo de la barra de navegación -->
+        <div class="cuerpo">
+            <div class="text-center">
+                <h2>Solicitudes de Ausencia</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Empleado</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de fin</th>
+                        <th>Estado</th>
+                        <th>Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Iterar sobre todas las ausencias -->
+                    <tr th:each="ausencia : ${todasLasAusencias}">
+                        <td th:text="${ausencia.nombreUsuario}"></td>
+                        <td th:text="${ausencia.fechaInicio}"></td>
+                        <td th:text="${ausencia.fechaFin}"></td>
+                        <td th:class="${ausencia.autorizada} ? 'autorizada' : 'no-autorizada'">
+                            <span th:text="${ausencia.autorizada} ? 'Autorizada' : 'No autorizada'"></span>
+                        </td>
+                        <td th:text="${ausencia.notas}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+            <div class="container">
+                <div class="text-center">
+                    <span class="text-muted">Factor RRHH</span>
+                </div>
+            </div>
+        </footer>
 </body>
+
 </html>

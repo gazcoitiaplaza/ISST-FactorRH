@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,21 +72,18 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        button[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
-        }
-        button[type="submit"]:hover {
-            background-color: #45a049;
+        .footer {
+            margin-top: 20px;
+            text-align: right;
+            padding-right: 20px; /* Agregar espacio a la derecha del footer */
         }
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <button onclick="location.href='/home_rh';" type="button" class="btn btn-primary">Volver al Inicio</button>
+        <button onclick="location.href='/login';" type="button" class="btn btn-primary ml-auto">Cerrar sesion</button>
+    </nav>
     <div class="container">
         <h1>Gestión de Talento</h1>
 
@@ -110,7 +108,7 @@
                 <label for="salario">Salario: (€/año)</label>
                 <input type="text" id="salario" name="salario">
                 
-                <button type="submit">Publicar Vacante</button>
+                <button type="submit" class="btn btn-primary">Publicar Vacante</button>
             </form>
         </div>
 
@@ -151,9 +149,16 @@
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" th:field="*{email}"/>
                 
-                <button type="submit">Agregar</button>
+                <button type="submit" class="btn btn-primary">Agregar</button>
             </form>
         </div>
     </div>
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+        <div class="footer">
+            <div class="text-center">
+                <span class="text-muted">Factor RRHH</span>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
