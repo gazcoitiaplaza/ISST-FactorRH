@@ -65,7 +65,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Iterar sobre todas las bajas -->
+            <!-- Iterar sobre todas las nominas -->
             <tr th:each="nomina : ${todasLasNominas}">
                 <td th:text="${nomina.empleado}"></td>
                 <td th:text="${nomina.mes}"></td>
@@ -74,6 +74,22 @@
                 <td th:text="${nomina.deducciones}"></td>
                 <td th:text="${nomina.bonificaciones}"></td>
                 <td th:text="${nomina.totalPago}"></td>
+            </tr>
+            <tr>
+                <td>Marzo 2024</td>
+                <td>1800</td>
+                <td>1800</td>
+                <td>150</td>
+                <td>80</td>
+                <td>1730</td>
+            </tr>
+            <tr>
+                <td>Abril 2024</td>
+                <td>1800</td>
+                <td>1800</td>
+                <td>220</td>
+                <td>120</td>
+                <td>1700</td>
             </tr>
         </tbody>
     </table>
