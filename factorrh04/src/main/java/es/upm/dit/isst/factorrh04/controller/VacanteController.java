@@ -24,6 +24,14 @@ public class VacanteController {
         return "listaVacantes"; // Esta es la vista donde se mostrarán las vacantes
     }
 
+    @GetMapping("/listaVacantes2")
+    public String mostrarListaVacantes2(Model model) {
+        List<Vacante> listaVacantes = vacanteRepository.findAll();
+        model.addAttribute("vacantes", listaVacantes);
+        return "listaVacantes2"; // Esta es la vista donde se mostrarán las vacantes
+    }
+
+
     @PostMapping("/definirVacante")
     public String definirVacante(@ModelAttribute Vacante vacante) {
         // Guardar la vacante en la base de datos
@@ -31,9 +39,14 @@ public class VacanteController {
         
         // Redirigir a alguna página de confirmación o a la lista de vacantes
         return "redirect:/listaVacantes";
-
-        
     }
+
+    @PostMapping("/borrarVacante")
+    public String borrarVacante(@RequestParam Long id, Model model) {
+        vacanteRepository.deleteById(id);
+        return "redirect:/listaVacantes2";
+    }
+
 }
 
 
