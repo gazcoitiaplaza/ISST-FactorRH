@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Vacantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        .delete-button {
+            background-color: #ff3333;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .delete-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Vacantes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título del Puesto</th>
+                    <th>Descripción</th>
+                    <th>Requisitos</th>
+                    <th>Ubicación</th>
+                    <th>Salario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Utiliza Thymeleaf para iterar sobre la lista de vacantes y mostrarlas en la tabla -->
+                <tr th:each="vacante : ${vacantes}">
+                    <td th:text="${vacante.titulo}"></td>
+                    <td th:text="${vacante.descripcion}"></td>
+                    <td th:text="${vacante.requisitos}"></td>
+                    <td th:text="${vacante.ubicacion}"></td>
+                    <td th:text="${vacante.salario}"></td>
+                    <td>
+                        <button class="delete-button">Borrar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

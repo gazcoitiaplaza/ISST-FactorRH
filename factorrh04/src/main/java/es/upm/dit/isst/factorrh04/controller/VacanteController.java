@@ -31,6 +31,8 @@ public class VacanteController {
         
         // Redirigir a alguna página de confirmación o a la lista de vacantes
         return "redirect:/listaVacantes";
+
+        
     }
 }
 
