@@ -23,4 +23,15 @@ public class VacanteController {
         model.addAttribute("vacantes", listaVacantes);
         return "listaVacantes"; // Esta es la vista donde se mostrarán las vacantes
     }
+
+    @PostMapping("/definirVacante")
+    public String definirVacante(@ModelAttribute Vacante vacante) {
+        // Guardar la vacante en la base de datos
+        vacanteRepository.save(vacante);
+        
+        // Redirigir a alguna página de confirmación o a la lista de vacantes
+        return "redirect:/listaVacantes";
+    }
 }
+
+
