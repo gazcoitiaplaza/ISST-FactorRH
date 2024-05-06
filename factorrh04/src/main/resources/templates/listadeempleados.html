@@ -77,15 +77,14 @@
         <!-- Contenedor para el contenido debajo de la barra de navegación -->
         <div class="cuerpo">
             <div class="text-center">
-                <h2>Reportar Ausencia</h2>
+                <h2>Empleados</h2>
             </div>
             <table>
                 <thead>
                     <tr>
                         <th>ID Empleado</th>
                         <th>Nombre</th>
-                        <th>Apellido 1</th>
-                        <th>Apellido 2</th>
+                        <th>Apellidos</th>
                         <th>Email</th>
                     </tr>
                 </thead>
@@ -95,8 +94,7 @@
                     <tr th:each="empleado : ${empleados}">
                         <td th:text="${empleado.idEmpleado}">ID Empleado</td>
                         <td th:text="${empleado.nombre}">Nombre</td>
-                        <td th:text="${empleado.apellido1}">Apellido 1</td>
-                        <td th:text="${empleado.apellido2}">Apellido 2</td>
+                        <td th:text="${empleado.apellido1 + ' ' + empleado.apellido2}">Apellidos</td>
                         <td th:text="${empleado.email}">Email</td>
                     </tr>
                 </tbody>
