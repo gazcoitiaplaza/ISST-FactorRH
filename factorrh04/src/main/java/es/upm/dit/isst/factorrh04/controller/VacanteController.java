@@ -24,11 +24,11 @@ public class VacanteController {
         return "listaVacantes"; // Esta es la vista donde se mostrarán las vacantes
     }
 
-    @GetMapping("/listaVacantes2")
+    @GetMapping("/listaVacantesRH")
     public String mostrarListaVacantes2(Model model) {
         List<Vacante> listaVacantes = vacanteRepository.findAll();
         model.addAttribute("vacantes", listaVacantes);
-        return "listaVacantes2"; // Esta es la vista donde se mostrarán las vacantes
+        return "listaVacantesRH"; // Esta es la vista donde se mostrarán las vacantes
     }
 
 
@@ -44,7 +44,7 @@ public class VacanteController {
     @PostMapping("/borrarVacante")
     public String borrarVacante(@RequestParam Long id, Model model) {
         vacanteRepository.deleteById(id);
-        return "redirect:/listaVacantes2";
+        return "redirect:/listaVacantesRH";
     }
 
 }
