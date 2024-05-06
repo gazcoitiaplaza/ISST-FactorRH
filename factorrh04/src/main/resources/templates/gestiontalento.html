@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Talento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Talento</h1>
+
+        <h2>Lista de Candidatos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido 1</th>
+                    <th>Apellido 2</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Utiliza Thymeleaf para iterar sobre la lista de candidatos y mostrarlos en la tabla -->
+                <tr th:each="candidato : ${candidatos}">
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Agregar Nuevo Empleado</h2>
+        <form action="/agregarEmpleado" method="post" th:object="${nuevoEmpleado}">
+            <label for="idEmpleado">ID Empleado:</label>
+            <input type="text" id="idEmpleado" name="idEmpleado" th:field="*{idEmpleado}"/>
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" th:field="*{nombre}"/>
+            
+            <label for="apellido1">Apellido 1:</label>
+            <input type="text" id="apellido1" name="apellido1" th:field="*{apellido1}"/>
+            
+            <label for="apellido2">Apellido 2:</label>
+            <input type="text" id="apellido2" name="apellido2" th:field="*{apellido2}"/>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="*{email}"/>
+            
+            <button type="submit">Agregar</button>
+        </form>
+
+        <h2>Definición de Vacante</h2>
+        <form action="/definirVacante" method="post">
+            <label for="titulo">Título del Puesto:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            
+            <label for="descripcion">Descripción del Trabajo:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+            
+            <label for="requisitos">Requisitos del Candidato:</label>
+            <textarea id="requisitos" name="requisitos" rows="4" required></textarea>
+            
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion">
+            
+            <label for="salario">Salario:</label>
+            <input type="text" id="salario" name="salario">
+            
+            <button type="submit">Publicar Vacante</button>
+        </form>
+    </div>
+</body>
+</html>
